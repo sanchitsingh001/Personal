@@ -1,0 +1,10 @@
+{
+  "placeholderImages": [
+    {
+      "id": "headshot",
+      "description": "A professional headshot of Sanchit Singh.",
+      "imageUrl": "/documents/sanchit-headshot.png",
+      "imageHint": "professional headshot"
+    }
+  ]
+}
