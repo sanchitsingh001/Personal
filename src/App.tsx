@@ -58,7 +58,11 @@ const completedProjects = [
         linkedAdvisors: {
             'Mary Pourebadi': 'https://scholar.google.com/citations?user=p7JH9hYAAAAJ&hl=en',
             'Kaveh Abhari': 'http://abhari.info/',
-            'Aaron Elkins': 'https://business.sdsu.edu/centers-institutes/ai'
+            'Aaron Elkins': 'https://business.sdsu.edu/centers-institutes/ai/director-spotlight'
+        },
+        researchGroup: {
+            name: 'James Silberrad Brown Center for Artificial Intelligence',
+            link: 'https://business.sdsu.edu/centers-institutes/ai'
         }
     }
 ];
@@ -70,6 +74,10 @@ const ongoingProjects = [
         role: 'Student researcher — designing target-shadow-attack-model pipelines and evaluation framework.',
         linkedAdvisors: {
             'Joann Chen': 'https://joannqc.com/'
+        },
+        researchGroup: {
+            name: 'PAL: Privacy and Anonymity Lab',
+            link: 'https://joannqc.com/lab/'
         }
     },
     {
@@ -189,6 +197,14 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                       <li key={index}>
                         <h3 className="text-lg font-semibold">{project.title}</h3>
                         <p className="text-sm text-muted-foreground"><strong>Advisors:</strong> {renderAdvisors()}</p>
+                        {(project as any).researchGroup && (
+                          <p className="text-sm text-muted-foreground">
+                            <strong>Research Group:</strong> 
+                            <a href={(project as any).researchGroup.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium ml-1">
+                              {(project as any).researchGroup.name}
+                            </a>
+                          </p>
+                        )}
                         <p className="text-sm text-muted-foreground"><strong>Role:</strong> {project.role}</p>
                       </li>
                     );
@@ -224,6 +240,14 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                       <li key={index}>
                         <h3 className="text-lg font-semibold">{project.title}</h3>
                         <p className="text-sm text-muted-foreground"><strong>{project.advisors ? 'Advisors:' : 'Advisor:'}</strong> {renderAdvisors()}</p>
+                        {(project as any).researchGroup && (
+                          <p className="text-sm text-muted-foreground">
+                            <strong>Research Group:</strong> 
+                            <a href={(project as any).researchGroup.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium ml-1">
+                              {(project as any).researchGroup.name}
+                            </a>
+                          </p>
+                        )}
                         <p className="text-sm text-muted-foreground"><strong>Role:</strong> {project.role}</p>
                       </li>
                     );
