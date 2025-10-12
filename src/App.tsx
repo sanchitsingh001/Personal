@@ -28,7 +28,8 @@ const publications = [
     authors: 'Singh, Sanchit, Elkins, Aaron, Blankenship, Sawyer, Kieback, Adrian, Amadasun, Uyiosa, & Chadha, Aman',
     journal: 'NeurIPS 2025 Workshop on AI for Music, 2025',
     link: '/documents/neurips-dawzy-4page.pdf',
-    demoLink: '/documents/neurips-dawzy-2page.pdf',
+    demoLink: 'https://www.youtube.com/watch?v=e6vbURyIQJE',
+    demoPaperLink: '/documents/neurips-dawzy-2page.pdf',
     note: '*equal contribution - Selected for both 4-page paper track and 2-page demo track',
   },
   {
@@ -258,7 +259,14 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                       {(pub as any).demoLink && (
                         <Button variant="ghost" size="sm" asChild>
                           <a href={(pub as any).demoLink} target="_blank" rel="noopener noreferrer">
-                            Demo <ExternalLink className="ml-2 h-4 w-4" />
+                            Demo Video <ExternalLink className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {(pub as any).demoPaperLink && (
+                        <Button variant="ghost" size="sm" asChild>
+                          <a href={(pub as any).demoPaperLink} target="_blank" rel="noopener noreferrer">
+                            Demo Paper <ExternalLink className="ml-2 h-4 w-4" />
                           </a>
                         </Button>
                       )}
