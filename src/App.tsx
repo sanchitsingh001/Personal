@@ -1,4 +1,5 @@
-import { Mail, Linkedin, FileText, ExternalLink, Github, Copy } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Mail, Linkedin, FileText, ExternalLink, Github, Copy, ChevronLeft, ChevronRight } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -24,12 +25,13 @@ const publications = [
     note: '*equal contribution',
   },
   {
-    title: 'DAWZY: Human-in-the-Loop Natural-Language Control of REAPER',
+    title: 'DAWZY: A New Addition to AI powered "Human in the Loop" Music Co-creation',
     authors: 'Singh, Sanchit, Elkins, Aaron, Blankenship, Sawyer, Kieback, Adrian, Amadasun, Uyiosa, & Chadha, Aman',
     journal: 'NeurIPS 2025 Workshop on AI for Music, 2025',
     link: '/documents/neurips-dawzy-4page.pdf',
-    demoLink: 'https://www.youtube.com/watch?v=e6vbURyIQJE',
+    demoLink: 'https://www.youtube.com/watch?v=RQmCuYLkEDk',
     demoPaperLink: '/documents/neurips-dawzy-2page.pdf',
+    posterLink: '/documents/NeurIPS_Dawzy_Poster .pdf',
     note: '*equal contribution - Selected for both 4-page paper track and 2-page demo track',
   },
   {
@@ -49,6 +51,10 @@ const completedProjects = [
         linkedAdvisors: {
             'Salimeh Sekeh': 'https://www.salimeh.info/',
             'Hajar Homayouni': 'https://homayouni.sdsu.edu/'
+        },
+        researchGroup: {
+            name: 'Sekeh Lab',
+            link: 'https://salimehsekeh.wixsite.com/sekeh-lab'
         }
     },
     {
@@ -60,6 +66,15 @@ const completedProjects = [
             'Kaveh Abhari': 'http://abhari.info/',
             'Aaron Elkins': 'https://business.sdsu.edu/centers-institutes/ai/director-spotlight'
         },
+        researchGroup: {
+            name: 'James Silberrad Brown Center for Artificial Intelligence',
+            link: 'https://business.sdsu.edu/centers-institutes/ai'
+        }
+    },
+    {
+        title: 'DAWZY: Creative AI for Human-AI Collaboration',
+        advisors: '— (Independent Research Project)',
+        role: 'Lead researcher and equal first author',
         researchGroup: {
             name: 'James Silberrad Brown Center for Artificial Intelligence',
             link: 'https://business.sdsu.edu/centers-institutes/ai'
@@ -87,6 +102,10 @@ const ongoingProjects = [
         linkedAdvisors: {
             'Hajar Homayouni': 'https://homayouni.sdsu.edu/',
             'Marie Roch': 'https://roch.sdsu.edu/'
+        },
+        researchGroup: {
+            name: 'MAR Lab',
+            link: 'https://roch.sdsu.edu/index.php/research-overview/'
         }
     }
 ];
@@ -94,6 +113,16 @@ const ongoingProjects = [
 function App() {
   const headshot = PlaceHolderImages.find(p => p.id === 'headshot');
   const { toast } = useToast();
+  const [isHovered, setIsHovered] = useState(false);
+  
+  const defaultImage = headshot?.imageUrl || '';
+  const hoverImage = '/photo/3B8220B9-2E03-4D2D-AF4C-9380A5A3314D.jpeg';
+
+  // Preload the hover image for smoother transition
+  useEffect(() => {
+    const img = new Image();
+    img.src = hoverImage;
+  }, [hoverImage]);
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -110,40 +139,56 @@ function App() {
     { text: 'https://github.com/sanchitsingh001', href: 'https://github.com/sanchitsingh001', icon: Github },
   ];
 
+  // Image carousel state for Berkeley presentation
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const berkeleyImages = [
+    '/photo/IMG_4780.JPG',
+    '/photo/img.jpg',
+    '/photo/IMG_4779.JPG'
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % berkeleyImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-dvh bg-background text-foreground">
+    <div className="flex flex-col min-h-dvh bg-background text-foreground overflow-x-hidden max-w-full">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 overflow-x-hidden max-w-full w-full">
         {/* Hero Section */}
-        <section id="home" className="w-full py-20 md:py-32">
-          <div className="container mx-auto px-4">
-            <div className="grid gap-10 md:grid-cols-2 md:gap-16 items-center">
-              <div className="order-1 md:order-1 flex justify-center">
+        <section id="home" className="w-full py-12 md:py-20 lg:py-32 overflow-x-hidden">
+          <div className="container mx-auto px-4 max-w-7xl">
+            <div className="grid gap-8 md:gap-10 lg:gap-12 xl:gap-12 md:grid-cols-2 items-stretch w-full max-w-full">
+              <div className="order-1 md:order-2 flex justify-center md:justify-end items-center w-full min-h-[400px] sm:min-h-[450px] md:min-h-0 max-w-full overflow-hidden px-2 sm:px-4">
                 {headshot && (
                   <img
-                    src={headshot.imageUrl}
+                    src={isHovered ? hoverImage : defaultImage}
                     alt={headshot.description}
                     data-ai-hint={headshot.imageHint}
-                    width={300}
-                    height={360}
-                    className="rounded-md object-cover aspect-[5/6] border-4 border-card shadow-lg"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                    className="w-full max-w-[90vw] sm:max-w-[380px] md:max-w-none md:w-full md:h-auto md:max-h-[85vh] rounded-lg md:rounded-xl object-cover aspect-[5/6] border-4 border-card shadow-xl transition-opacity duration-300 cursor-pointer"
                   />
                 )}
               </div>
-              <div className="order-2 md:order-2 flex flex-col items-center md:items-start text-center md:text-left">
-                <h1 className="text-4xl md:text-5xl font-bold tracking-tighter mb-4">Sanchit Singh</h1>
-                <p className="text-xl text-muted-foreground mb-6">
+              <div className="order-2 md:order-1 flex flex-col items-center md:items-start md:justify-center text-center md:text-left w-full max-w-full px-2 sm:px-4 md:px-0 md:pr-8 lg:pr-12">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 w-full">Sanchit Singh</h1>
+                <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 w-full max-w-xl lg:max-w-lg">
                   Undergraduate researcher at San Diego State University exploring trustworthy and adaptive Artificial Intelligence.
 My work spans robustness, reasoning, and human-centered AI — bridging socially intelligent and creative human–AI systems, with a focus on real-world robustness and deployment.
                 </p>
-                <div className="flex gap-4">
-                  <Button asChild>
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+                  <Button asChild className="w-full sm:w-auto">
                     <a href="#contact">
                       <Mail className="mr-2 h-4 w-4" /> Contact Me
                     </a>
                   </Button>
-                  <Button variant="secondary" asChild>
-                    <a href="/documents/sanchit-singh-resume.pdf" target="_blank" rel="noopener noreferrer">
+                  <Button variant="secondary" asChild className="w-full sm:w-auto">
+                    <a href="/documents/Sanchit_Singh_CV.pdf" target="_blank" rel="noopener noreferrer">
                       <FileText className="mr-2 h-4 w-4" /> Resume/CV
                     </a>
                   </Button>
@@ -153,12 +198,13 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
           </div>
         </section>
 
-        <section className="w-full pb-10 md:pb-16">
+        <section className="w-full pb-10 md:pb-16 overflow-x-hidden max-w-full">
           <div className="container mx-auto px-4 max-w-4xl">
             <Alert className="border-primary/50">
                <AlertTitle>Updates</AlertTitle>
-              <AlertDescription>
-                Presenting Temp-SCONE at NeurIPS 2025 (Reliable ML for Unreliable Data Workshop) in San Diego.
+              <AlertDescription className="space-y-2">
+                <div>Presenting Temp-SCONE at NeurIPS 2025 (Reliable ML for Unreliable Data Workshop) in San Diego.</div>
+                <div>Presenting DAWZY at NeurIPS 2025 (AI for Music Workshop) in San Diego.</div>
               </AlertDescription>
             </Alert>
           </div>
@@ -167,7 +213,7 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
         <Separator />
 
         {/* Research Journey Section */}
-        <section id="research" className="w-full py-20 md:py-24">
+        <section id="research" className="w-full py-20 md:py-24 overflow-x-hidden max-w-full">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="flex flex-col items-center text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold">Research Journey</h2>
@@ -221,7 +267,7 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                 <ul className="space-y-4">
                   {ongoingProjects.map((project, index) => {
                     const renderAdvisors = () => {
-                      let advisorsText = project.advisors || project.advisor;
+                      let advisorsText = project.advisors || project.advisor || '';
                       if ((project as any).linkedAdvisors) {
                         const linkedAdvisors = (project as any).linkedAdvisors;
                         
@@ -262,7 +308,7 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
         <Separator />
         
         {/* Publications Section */}
-        <section id="publications" className="w-full py-20 md:py-24">
+        <section id="publications" className="w-full py-20 md:py-24 overflow-x-hidden max-w-full">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="flex flex-col items-center text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold">Publications</h2>
@@ -272,25 +318,32 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                 <div key={pub.title} className="py-4 border-b border-border/50 last:border-b-0">
                   <h3 className="font-semibold text-lg mb-1">{pub.title}</h3>
                   <p className="text-sm text-muted-foreground mb-2 italic">{pub.authors} {pub.note && <span>({pub.note})</span>}</p>
-                  <div className="flex justify-between items-center">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mt-2">
                     <p className="text-sm font-medium">{pub.journal}</p>
-                    <div className="flex gap-2">
-                      <Button variant="ghost" size="sm" asChild>
+                    <div className="flex flex-wrap gap-2">
+                      <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
                         <a href={pub.link} target="_blank" rel="noopener noreferrer">
                           Read Paper <ExternalLink className="ml-2 h-4 w-4" />
                         </a>
                       </Button>
                       {(pub as any).demoLink && (
-                        <Button variant="ghost" size="sm" asChild>
+                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
                           <a href={(pub as any).demoLink} target="_blank" rel="noopener noreferrer">
                             Demo Video <ExternalLink className="ml-2 h-4 w-4" />
                           </a>
                         </Button>
                       )}
                       {(pub as any).demoPaperLink && (
-                        <Button variant="ghost" size="sm" asChild>
+                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
                           <a href={(pub as any).demoPaperLink} target="_blank" rel="noopener noreferrer">
                             Demo Paper <ExternalLink className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {(pub as any).posterLink && (
+                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
+                          <a href={(pub as any).posterLink} target="_blank" rel="noopener noreferrer">
+                            Poster <ExternalLink className="ml-2 h-4 w-4" />
                           </a>
                         </Button>
                       )}
@@ -305,26 +358,60 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
         <Separator />
 
         {/* Awards & Honors Section */}
-        <section id="awards" className="w-full py-20 md:py-24">
+        <section id="awards" className="w-full py-20 md:py-24 overflow-x-hidden max-w-full">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="flex flex-col items-center text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold">Awards &amp; Honors</h2>
             </div>
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold text-lg mb-2">Academic</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>2025 – Nominated for <span className="font-medium text-foreground">CRA Outstanding Undergraduate Researcher Award</span></li>
-                  <li>2023 – Present – <span className="font-medium text-foreground">Dean's List</span>, San Diego State University (awarded consecutively each semester)</li>
-                </ul>
-              </div>
-              <Separator />
-              <div>
-                <h3 className="font-semibold text-lg mb-2">Competitions &amp; Certifications</h3>
-                <ul className="list-disc list-inside space-y-1 text-sm text-muted-foreground">
-                  <li>2025 – <span className="font-medium text-foreground">Finalist</span>, UC Berkeley AI Hackathon (DAWZY) — Top 9 of 350+ projects, 1400+ participants</li>
-                  <li>2024 – <span className="font-medium text-foreground">TensorFlow Developer Certification</span>, Google</li>
-                </ul>
+            <div className="space-y-8">
+              <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground max-w-3xl mx-auto">
+                <li>2025 – Nominated for <span className="font-medium text-foreground">CRA Outstanding Undergraduate Researcher Award</span> (results pending)</li>
+                <li>2025 – Awarded a <span className="font-medium text-foreground">$3,000 Seed Fund</span> from the Lavin Entrepreneurship Center to support research and development of an independent AI venture.</li>
+                <li>2025 – <span className="font-medium text-foreground">Finalist</span>, UC Berkeley AI Hackathon (DAWZY) — Top 9 of 350+ projects, 1400+ participants</li>
+                <li>2024 – <span className="font-medium text-foreground">TensorFlow Developer Certification</span>, Google</li>
+                <li>2023 – Present – <span className="font-medium text-foreground">Dean's List</span>, San Diego State University (awarded consecutively each semester)</li>
+              </ul>
+
+              {/* Berkeley Presentation Slideshow */}
+              <div className="flex flex-col items-center mt-12 max-w-4xl mx-auto">
+                <div className="relative w-full max-w-3xl rounded-lg overflow-hidden shadow-xl">
+                  <div className="relative aspect-video bg-black">
+                    <img
+                      src={berkeleyImages[currentImageIndex]}
+                      alt={`Presenting at Berkeley ${currentImageIndex + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Navigation arrows */}
+                    <button
+                      onClick={() => setCurrentImageIndex((prevIndex) => (prevIndex - 1 + berkeleyImages.length) % berkeleyImages.length)}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                      aria-label="Previous image"
+                    >
+                      <ChevronLeft className="h-6 w-6" />
+                    </button>
+                    <button
+                      onClick={() => setCurrentImageIndex((prevIndex) => (prevIndex + 1) % berkeleyImages.length)}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                      aria-label="Next image"
+                    >
+                      <ChevronRight className="h-6 w-6" />
+                    </button>
+                    {/* Image indicators */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                      {berkeleyImages.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`w-2 h-2 rounded-full transition-colors ${
+                            index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                          }`}
+                          aria-label={`Go to image ${index + 1}`}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <p className="text-sm text-muted-foreground mt-4 italic">Presenting Dawzy at UC Berkeley</p>
               </div>
             </div>
           </div>
@@ -333,30 +420,114 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
         <Separator />
 
         {/* Contact Section */}
-        <section id="contact" className="w-full py-20 md:py-24">
-          <div className="container mx-auto px-4 max-w-2xl">
-            <div className="flex flex-col items-center text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Contact</h2>
-              <p className="text-lg text-muted-foreground mt-2">Have a question or want to collaborate? Reach out via email or LinkedIn.</p>
+        <section id="contact" className="w-full py-12 md:py-16 lg:py-20 overflow-x-hidden max-w-full relative md:min-h-[400px] lg:min-h-[500px]">
+          {/* Background Image - Desktop Only */}
+          <div className="hidden md:block absolute inset-0 z-0">
+            <div 
+              className="w-full h-full bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: 'url(/photo/IMG_8669.jpeg)' }}
+            >
+              {/* Overlay for better text readability */}
+              <div className="absolute inset-0 bg-black/40"></div>
             </div>
-            <div className="flex flex-col items-center justify-center gap-4 text-lg">
-              {contactInfo.map((item) => (
-                <div key={item.text} className="flex items-center gap-4 group">
-                  <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors break-all">
-                    <item.icon className="h-5 w-5" />
-                    {item.text}
-                  </a>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
-                    onClick={() => handleCopy(item.text)}
-                    aria-label={`Copy ${item.text}`}
-                  >
-                    <Copy className="h-4 w-4" />
-                  </Button>
+          </div>
+          
+          {/* Content */}
+          <div className="container mx-auto px-4 max-w-2xl md:max-w-7xl relative z-10">
+            {/* Mobile: Normal layout */}
+            <div className="md:hidden flex flex-col items-center text-center">
+              <div className="mb-8">
+                <h2 className="text-3xl font-bold mb-2">Contact</h2>
+                <p className="text-lg text-muted-foreground">Want to collaborate? Reach out via email or LinkedIn.</p>
+              </div>
+              <div className="flex flex-col items-center justify-center gap-4 text-lg">
+                {contactInfo.map((item) => (
+                  <div key={item.text} className="flex items-center gap-4 group">
+                    <a href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors break-all">
+                      <item.icon className="h-5 w-5" />
+                      {item.text}
+                    </a>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
+                      onClick={() => handleCopy(item.text)}
+                      aria-label={`Copy ${item.text}`}
+                    >
+                      <Copy className="h-4 w-4" />
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Desktop: Two separate cards on edges */}
+            <div className="hidden md:flex items-center justify-between py-10 lg:py-12 w-full max-w-7xl mx-auto px-4 lg:px-8 gap-4">
+              {/* Left Card */}
+              <div className="backdrop-blur-md bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-6 w-[290px] lg:w-[310px] flex-shrink-0">
+                <div className="flex flex-col gap-3 text-base">
+                  {contactInfo.slice(0, 2).map((item) => (
+                    <div key={item.text} className="flex items-start gap-2 group">
+                      <item.icon className="h-4 w-4 flex-shrink-0 mt-0.5 text-white" />
+                      <div className="flex-1 min-w-0">
+                        <a 
+                          href={item.href} 
+                          target={item.href.startsWith('http') ? '_blank' : undefined} 
+                          rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} 
+                          className="block text-white hover:text-white/80 transition-colors break-words font-medium text-xs lg:text-sm leading-relaxed"
+                        >
+                          {item.text}
+                        </a>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-7 w-7 opacity-0 group-hover:opacity-100 transition-opacity text-white hover:text-white/80 hover:bg-white/10 flex-shrink-0"
+                        onClick={() => handleCopy(item.text)}
+                        aria-label={`Copy ${item.text}`}
+                      >
+                        <Copy className="h-3.5 w-3.5" />
+                      </Button>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Center: Title (visible in center) */}
+              <div className="flex flex-col items-center text-center px-4 lg:px-12 flex-1 pt-24 lg:pt-32">
+                <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">Contact</h2>
+                <p className="text-sm lg:text-base text-white/90">Want to collaborate?</p>
+              </div>
+
+              {/* Right Card */}
+              <div className="backdrop-blur-md bg-white/10 rounded-2xl border border-white/20 shadow-2xl p-5 w-[260px] lg:w-[280px] flex-shrink-0">
+                <div className="flex flex-col gap-3 text-base">
+                  {contactInfo.slice(2, 4).map((item) => (
+                    <div key={item.text} className="flex items-start gap-2 group">
+                      <item.icon className="h-4 w-4 flex-shrink-0 mt-0.5 text-white" />
+                      <div className="flex-1 min-w-0">
+                        <a 
+                          href={item.href} 
+                          target={item.href.startsWith('http') ? '_blank' : undefined} 
+                          rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined} 
+                          className="block text-white hover:text-white/80 transition-colors break-words font-medium text-xs lg:text-sm leading-relaxed"
+                        >
+                          {item.text}
+                        </a>
+                      </div>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-7 w-7 opacity-0 group-hover:opacity-100 transition-opacity text-white hover:text-white/80 hover:bg-white/10 flex-shrink-0"
+                        onClick={() => handleCopy(item.text)}
+                        aria-label={`Copy ${item.text}`}
+                      >
+                        <Copy className="h-3.5 w-3.5" />
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
