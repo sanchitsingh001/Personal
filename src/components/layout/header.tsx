@@ -8,6 +8,7 @@ const navLinks = [
   { href: '#research', label: 'Research' },
   { href: '#publications', label: 'Publications' },
   { href: '#awards', label: 'Awards' },
+  { href: '#gallery', label: 'Gallery' },
   { href: '#contact', label: 'Contact' },
 ];
 

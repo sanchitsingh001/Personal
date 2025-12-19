@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Mail, Linkedin, FileText, ExternalLink, Github, Copy, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Mail, Linkedin, FileText, ExternalLink, Github, Copy, ChevronLeft, ChevronRight, X, Expand } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
@@ -8,13 +8,15 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useToast } from '@/hooks/use-toast';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Toaster } from '@/components/ui/toaster';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 const publications = [
   {
     title: 'Temp-SCONE: A Novel Out-of-Distribution Detection and Domain Generalization Framework for Wild Data with Temporal Shift',
     authors: 'Singh, Sanchit, Naiknaware, Aditi, Sekeh, Salimeh, & Homayouni, Hajar',
     journal: 'NeurIPS 2025 Workshop on Reliable Machine Learning for Unreliable Data, 2025',
-    link: '/documents/neurips-temp-scone.pdf',
+    link: 'https://arxiv.org/abs/2512.04571',
+    posterLink: '/documents/OOD_Poster.pdf',
     note: '*equal contribution',
   },
   {
@@ -28,7 +30,7 @@ const publications = [
     title: 'DAWZY: A New Addition to AI powered "Human in the Loop" Music Co-creation',
     authors: 'Singh, Sanchit, Elkins, Aaron, Blankenship, Sawyer, Kieback, Adrian, Amadasun, Uyiosa, & Chadha, Aman',
     journal: 'NeurIPS 2025 Workshop on AI for Music, 2025',
-    link: '/documents/neurips-dawzy-4page.pdf',
+    link: 'https://arxiv.org/abs/2512.03289',
     demoLink: 'https://www.youtube.com/watch?v=RQmCuYLkEDk',
     demoPaperLink: '/documents/neurips-dawzy-2page.pdf',
     posterLink: '/documents/NeurIPS_Dawzy_Poster .pdf',
@@ -139,17 +141,20 @@ function App() {
     { text: 'https://github.com/sanchitsingh001', href: 'https://github.com/sanchitsingh001', icon: Github },
   ];
 
-  // Image carousel state for Berkeley presentation
+  // Image carousel state for gallery
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const berkeleyImages = [
-    '/photo/IMG_4780.JPG',
-    '/photo/img.jpg',
-    '/photo/IMG_4779.JPG'
+  const [galleryOpen, setGalleryOpen] = useState(false);
+  const galleryImages = [
+    { src: '/photo/Dawzy-NeurIPS.jpeg', caption: 'Presenting DAWZY at NeurIPS 2025, San Diego' },
+    { src: '/photo/Temp-scone-NeurIPS.gif', caption: 'Presenting Temp-SCONE at NeurIPS 2025, San Diego' },
+    { src: '/photo/IMG_4780.JPG', caption: 'Presenting DAWZY at UC Berkeley AI Hackathon' },
+    { src: '/photo/img.jpg', caption: 'UC Berkeley AI Hackathon Finals' },
+    { src: '/photo/IMG_4779.JPG', caption: 'DAWZY Demo at UC Berkeley' }
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % berkeleyImages.length);
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % galleryImages.length);
     }, 5000); // Change image every 5 seconds
 
     return () => clearInterval(interval);
@@ -201,10 +206,13 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
         <section className="w-full pb-10 md:pb-16 overflow-x-hidden max-w-full">
           <div className="container mx-auto px-4 max-w-4xl">
             <Alert className="border-primary/50">
-               <AlertTitle>Updates</AlertTitle>
-              <AlertDescription className="space-y-2">
-                <div>Presenting Temp-SCONE at NeurIPS 2025 (Reliable ML for Unreliable Data Workshop) in San Diego.</div>
-                <div>Presenting DAWZY at NeurIPS 2025 (AI for Music Workshop) in San Diego.</div>
+               <AlertTitle>News</AlertTitle>
+              <AlertDescription>
+                <ul className="list-disc list-inside space-y-2 mt-2">
+                  <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2025-2026 <span className="font-semibold">CRA Outstanding Undergraduate Researcher Award</span>.</li>
+                  <li><span className="text-muted-foreground text-sm">[Dec 7, 2025]</span> Presented DAWZY at <span className="font-semibold">NeurIPS 2025</span> (AI for Music Workshop) in San Diego.</li>
+                  <li><span className="text-muted-foreground text-sm">[Dec 6, 2025]</span> Presented Temp-SCONE at <span className="font-semibold">NeurIPS 2025</span> (Reliable ML for Unreliable Data Workshop) in San Diego.</li>
+                </ul>
               </AlertDescription>
             </Alert>
           </div>
@@ -365,43 +373,51 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
             </div>
             <div className="space-y-8">
               <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground max-w-3xl mx-auto">
-                <li>2025 – Nominated for <span className="font-medium text-foreground">CRA Outstanding Undergraduate Researcher Award</span> (results pending)</li>
+                <li>2025-2026 – <span className="font-medium text-foreground">Honorable Mention</span>, CRA Outstanding Undergraduate Researcher Award</li>
                 <li>2025 – Awarded a <span className="font-medium text-foreground">$3,000 Seed Fund</span> from the Lavin Entrepreneurship Center to support research and development of an independent AI venture.</li>
                 <li>2025 – <span className="font-medium text-foreground">Finalist</span>, UC Berkeley AI Hackathon (DAWZY) — Top 9 of 350+ projects, 1400+ participants</li>
                 <li>2024 – <span className="font-medium text-foreground">TensorFlow Developer Certification</span>, Google</li>
                 <li>2023 – Present – <span className="font-medium text-foreground">Dean's List</span>, San Diego State University (awarded consecutively each semester)</li>
               </ul>
 
-              {/* Berkeley Presentation Slideshow */}
-              <div className="flex flex-col items-center mt-12 max-w-4xl mx-auto">
-                <div className="relative w-full max-w-3xl rounded-lg overflow-hidden shadow-xl">
+              {/* Gallery */}
+              <div id="gallery" className="flex flex-col items-center mt-12 max-w-4xl mx-auto scroll-mt-24">
+                <h3 className="text-xl font-semibold mb-4">Gallery</h3>
+                <div 
+                  className="relative w-full max-w-3xl rounded-lg overflow-hidden shadow-xl cursor-pointer group"
+                  onClick={() => setGalleryOpen(true)}
+                >
                   <div className="relative aspect-video bg-black">
                     <img
-                      src={berkeleyImages[currentImageIndex]}
-                      alt={`Presenting at Berkeley ${currentImageIndex + 1}`}
+                      src={galleryImages[currentImageIndex].src}
+                      alt={galleryImages[currentImageIndex].caption}
                       className="w-full h-full object-cover"
                     />
+                    {/* Expand icon overlay */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <Expand className="h-10 w-10 text-white opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
                     {/* Navigation arrows */}
                     <button
-                      onClick={() => setCurrentImageIndex((prevIndex) => (prevIndex - 1 + berkeleyImages.length) % berkeleyImages.length)}
-                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                      onClick={(e) => { e.stopPropagation(); setCurrentImageIndex((prevIndex) => (prevIndex - 1 + galleryImages.length) % galleryImages.length); }}
+                      className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-10"
                       aria-label="Previous image"
                     >
                       <ChevronLeft className="h-6 w-6" />
                     </button>
                     <button
-                      onClick={() => setCurrentImageIndex((prevIndex) => (prevIndex + 1) % berkeleyImages.length)}
-                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+                      onClick={(e) => { e.stopPropagation(); setCurrentImageIndex((prevIndex) => (prevIndex + 1) % galleryImages.length); }}
+                      className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-10"
                       aria-label="Next image"
                     >
                       <ChevronRight className="h-6 w-6" />
                     </button>
                     {/* Image indicators */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-                      {berkeleyImages.map((_, index) => (
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                      {galleryImages.map((_, index) => (
                         <button
                           key={index}
-                          onClick={() => setCurrentImageIndex(index)}
+                          onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(index); }}
                           className={`w-2 h-2 rounded-full transition-colors ${
                             index === currentImageIndex ? 'bg-white' : 'bg-white/50'
                           }`}
@@ -411,8 +427,70 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                     </div>
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-4 italic">Presenting Dawzy at UC Berkeley</p>
+                <p className="text-sm text-muted-foreground mt-4 italic">{galleryImages[currentImageIndex].caption}</p>
+                <p className="text-xs text-muted-foreground mt-1">Click to view full gallery</p>
               </div>
+
+              {/* Gallery Modal */}
+              <Dialog open={galleryOpen} onOpenChange={setGalleryOpen}>
+                <DialogContent className="w-screen h-screen max-w-none m-0 p-0 bg-black border-none rounded-none md:w-[95vw] md:h-[90vh] md:max-w-6xl md:rounded-lg md:border">
+                  <button
+                    onClick={() => setGalleryOpen(false)}
+                    className="absolute right-2 top-2 md:right-4 md:top-4 text-white/70 hover:text-white z-50"
+                    aria-label="Close gallery"
+                  >
+                    <X className="h-6 w-6 md:h-8 md:w-8" />
+                  </button>
+                  
+                  {/* Main image */}
+                  <div className="flex flex-col h-full justify-between py-12 md:py-4">
+                    <div className="flex-1 flex items-center justify-center px-2 md:px-4 relative min-h-0">
+                      <img
+                        src={galleryImages[currentImageIndex].src}
+                        alt={galleryImages[currentImageIndex].caption}
+                        className="max-w-full max-h-full md:max-h-[60vh] object-contain"
+                      />
+                      {/* Navigation arrows */}
+                      <button
+                        onClick={() => setCurrentImageIndex((prevIndex) => (prevIndex - 1 + galleryImages.length) % galleryImages.length)}
+                        className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2 md:p-3 rounded-full transition-colors"
+                        aria-label="Previous image"
+                      >
+                        <ChevronLeft className="h-5 w-5 md:h-8 md:w-8" />
+                      </button>
+                      <button
+                        onClick={() => setCurrentImageIndex((prevIndex) => (prevIndex + 1) % galleryImages.length)}
+                        className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-2 md:p-3 rounded-full transition-colors"
+                        aria-label="Next image"
+                      >
+                        <ChevronRight className="h-5 w-5 md:h-8 md:w-8" />
+                      </button>
+                    </div>
+                    
+                    {/* Caption */}
+                    <p className="text-white text-center py-2 px-4 text-sm md:text-lg flex-shrink-0">{galleryImages[currentImageIndex].caption}</p>
+                    
+                    {/* Thumbnail strip */}
+                    <div className="flex justify-start md:justify-center gap-2 px-2 md:px-4 pb-2 overflow-x-auto flex-shrink-0">
+                      {galleryImages.map((image, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setCurrentImageIndex(index)}
+                          className={`flex-shrink-0 w-14 h-10 md:w-20 md:h-14 rounded overflow-hidden border-2 transition-all ${
+                            index === currentImageIndex ? 'border-white scale-105 md:scale-110' : 'border-transparent opacity-60 hover:opacity-100'
+                          }`}
+                        >
+                          <img
+                            src={image.src}
+                            alt={image.caption}
+                            className="w-full h-full object-cover"
+                          />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </section>
