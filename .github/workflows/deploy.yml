@@ -1,0 +1,57 @@
+# Deploy portfolio to S3 + CloudFront on push to main
+name: Deploy to S3 & CloudFront
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+env:
+  NODE_VERSION: "20"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+
+      - name: Sync to S3
+        run: |
+          aws s3 sync dist/ s3://${{ vars.AWS_S3_BUCKET }} \
+            --delete \
+            --cache-control "public, max-age=31536000, immutable" \
+            --exclude "index.html" \
+            --exclude "*.html"
+          aws s3 sync dist/ s3://${{ vars.AWS_S3_BUCKET }} \
+            --delete \
+            --cache-control "public, max-age=0, must-revalidate" \
+            --exclude "*" \
+            --include "index.html" \
+            --include "*.html"
+
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ vars.AWS_CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"

@@ -181,7 +181,7 @@ function App() {
                 )}
               </div>
               <div className="order-2 md:order-1 flex flex-col items-center md:items-start md:justify-center text-center md:text-left w-full max-w-full px-2 sm:px-4 md:px-0 md:pr-8 lg:pr-12">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 w-full">Sanchit Singh</h1>
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 w-full">balls singh</h1>
                 <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 w-full max-w-xl lg:max-w-lg">
                   Undergraduate researcher at San Diego State University exploring trustworthy and adaptive Artificial Intelligence.
 My work spans robustness, reasoning, and human-centered AI — bridging socially intelligent and creative human–AI systems, with a focus on real-world robustness and deployment.
