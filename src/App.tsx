@@ -351,7 +351,7 @@ function App() {
                 <ul className="space-y-4">
                   {ongoingProjects.map((project, index) => {
                     const renderAdvisors = () => {
-                      let advisorsText = project.advisors || project.advisor || '';
+                      let advisorsText = project.advisors || '';
                       if ((project as any).linkedAdvisors) {
                         const linkedAdvisors = (project as any).linkedAdvisors;
                         
