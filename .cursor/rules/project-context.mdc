@@ -1,0 +1,32 @@
+---
+description: Project context for Sanchit Singh academic portfolio
+alwaysApply: true
+---
+
+# Project Context: Sanchit Singh Portfolio
+
+## What This Project Does
+Academic/research portfolio website for Sanchit Singh, showcasing publications, research projects, awards, gallery, and contact info.
+
+## Tech Stack
+- React 18, TypeScript, Vite
+- Tailwind CSS, shadcn/ui components
+- Lucide React icons
+
+## Key Files
+| File | Purpose |
+|------|---------|
+| src/App.tsx | Main app layout, sections, content |
+| src/components/layout/header.tsx | Nav, theme toggle, social links |
+| src/components/theme-provider.tsx | Dark/light theme context and persistence |
+| src/globals.css | CSS variables for light/dark themes |
+
+## Current State
+- Last updated: Feb 21, 2026
+- Theme: Dark/light toggle added with dark as default. Persists in localStorage. Toggle in header (desktop and mobile).
+- Intro: Hyperlinks added for SDSU, research section, narrative worlds, DAWZY; bioacoustics ongoing project includes animal2vec GitHub code link.
+- Research Journey: Each project now has a one-line "research idea" summary to aid PI skimming (intellectual contribution, not just role).
+- Section order: Hero → News → Publications → Research Journey → Awards → Contact.
+
+## Active Tasks
+- None currently

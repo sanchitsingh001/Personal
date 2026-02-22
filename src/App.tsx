@@ -12,6 +12,13 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 const publications = [
   {
+    title: 'Training-Free Construction of Executable 3D Worlds from Narrative Text',
+    authors: 'Singh, Sanchit',
+    journal: 'Preprint, 2026 — Currently under review at ICLR Workshop on World Models',
+    link: '/documents/ICLR_v1.pdf',
+    githubLink: 'https://github.com/sanchitsingh001/NarrativeWorlds',
+  },
+  {
     title: 'Temp-SCONE: A Novel Out-of-Distribution Detection and Domain Generalization Framework for Wild Data with Temporal Shift',
     authors: 'Singh, Sanchit, Naiknaware, Aditi, Sekeh, Salimeh, & Homayouni, Hajar',
     journal: 'NeurIPS 2025 Workshop on Reliable Machine Learning for Unreliable Data, 2025',
@@ -48,6 +55,7 @@ const publications = [
 const completedProjects = [
     {
         title: 'Temporal OOD Detection (Temp-SCONE)',
+        idea: 'Developed a temporal extension of SCONE to improve OOD detection under distribution shifts.',
         advisors: 'Salimeh Sekeh, Hajar Homayouni',
         role: 'Equal first author — theoretical formulation, training pipeline, analysis.',
         linkedAdvisors: {
@@ -61,6 +69,7 @@ const completedProjects = [
     },
     {
         title: 'Socially Intelligent Robots',
+        idea: 'Investigated challenges and strategies for training socially aware robots using large behavior models and socially grounded data pipelines.',
         advisors: 'Mary Pourebadi, Kaveh Abhari, Aaron Elkins',
         role: 'Equal first author — method design, experiments, and writing.',
         linkedAdvisors: {
@@ -75,20 +84,19 @@ const completedProjects = [
     },
     {
         title: 'DAWZY: Creative AI for Human-AI Collaboration',
+        idea: 'Built an AI-powered human-in-the-loop music co-creation tool that enables collaborative creative workflows between humans and AI.',
         advisors: '— (Independent Research Project)',
         role: 'Lead researcher and equal first author',
         researchGroup: {
             name: 'James Silberrad Brown Center for Artificial Intelligence',
             link: 'https://business.sdsu.edu/centers-institutes/ai'
         }
-    }
-];
-
-const ongoingProjects = [
+    },
     {
         title: 'Privacy in Graph Learning',
-        advisor: 'Joann Chen',
-        role: 'Student researcher — designing target-shadow-attack-model pipelines and evaluation framework.',
+        idea: 'Designed target-shadow-attack pipelines and evaluation frameworks to study privacy risks in graph neural networks.',
+        advisors: 'Joann Chen',
+        role: 'Student researcher — designed target-shadow-attack-model pipelines and evaluation framework.',
         linkedAdvisors: {
             'Joann Chen': 'https://joannqc.com/'
         },
@@ -96,9 +104,13 @@ const ongoingProjects = [
             name: 'PAL: Privacy and Anonymity Lab',
             link: 'https://joannqc.com/lab/'
         }
-    },
+    }
+];
+
+const ongoingProjects = [
     {
         title: 'Self-Supervised Bioacoustics',
+        idea: 'Applying self-supervised representation learning to animal vocalizations for robust acoustic analysis and wildlife monitoring.',
         advisors: 'Hajar Homayouni, Marie Roch (with San Diego Zoo Wildlife Alliance)',
         role: 'Student researcher — model design, representation learning, and evaluation.',
         linkedAdvisors: {
@@ -108,7 +120,8 @@ const ongoingProjects = [
         researchGroup: {
             name: 'MAR Lab',
             link: 'https://roch.sdsu.edu/index.php/research-overview/'
-        }
+        },
+        codeLink: 'https://github.com/sanchitsingh001/Mar-Lab-Animal2vec'
     }
 ];
 
@@ -117,10 +130,9 @@ function App() {
   const { toast } = useToast();
   const [isHovered, setIsHovered] = useState(false);
   
-  const defaultImage = headshot?.imageUrl || '';
-  const hoverImage = '/photo/3B8220B9-2E03-4D2D-AF4C-9380A5A3314D.jpeg';
+  const headshotImage = '/photo/3B8220B9-2E03-4D2D-AF4C-9380A5A3314D.jpeg';
+  const hoverImage = '/photo/IMG_8695.jpeg';
 
-  // Preload the hover image for smoother transition
   useEffect(() => {
     const img = new Image();
     img.src = hoverImage;
@@ -167,25 +179,29 @@ function App() {
         {/* Hero Section */}
         <section id="home" className="w-full py-12 md:py-20 lg:py-32 overflow-x-hidden">
           <div className="container mx-auto px-4 max-w-7xl">
-            <div className="grid gap-8 md:gap-10 lg:gap-12 xl:gap-12 md:grid-cols-2 items-stretch w-full max-w-full">
-              <div className="order-1 md:order-2 flex justify-center md:justify-end items-center w-full min-h-[400px] sm:min-h-[450px] md:min-h-0 max-w-full overflow-hidden px-2 sm:px-4">
+            <div className="grid gap-8 md:gap-12 lg:gap-16 md:grid-cols-[auto_1fr] md:items-start w-full max-w-full">
+              <div className="order-1 flex justify-center md:justify-start items-start w-full md:w-auto max-w-full overflow-hidden px-2 sm:px-4">
                 {headshot && (
                   <img
-                    src={isHovered ? hoverImage : defaultImage}
+                    src={isHovered ? hoverImage : headshotImage}
                     alt={headshot.description}
                     data-ai-hint={headshot.imageHint}
                     onMouseEnter={() => setIsHovered(true)}
                     onMouseLeave={() => setIsHovered(false)}
-                    className="w-full max-w-[90vw] sm:max-w-[380px] md:max-w-none md:w-full md:h-auto md:max-h-[85vh] rounded-lg md:rounded-xl object-cover aspect-[5/6] border-4 border-card shadow-xl transition-opacity duration-300 cursor-pointer"
+                    className="w-full max-w-[260px] sm:max-w-[280px] md:max-w-[320px] lg:max-w-[360px] md:w-auto rounded-lg md:rounded-xl object-cover aspect-[4/5] border border-border shadow-lg transition-opacity duration-300 cursor-pointer"
                   />
                 )}
               </div>
-              <div className="order-2 md:order-1 flex flex-col items-center md:items-start md:justify-center text-center md:text-left w-full max-w-full px-2 sm:px-4 md:px-0 md:pr-8 lg:pr-12">
+              <div className="order-2 flex flex-col items-center md:items-start text-center md:text-left w-full max-w-full px-2 sm:px-4 md:px-0 md:pl-0">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 w-full">Sanchit Singh</h1>
-                <p className="text-base sm:text-lg md:text-xl text-muted-foreground mb-6 w-full max-w-xl lg:max-w-lg">
-                  Undergraduate researcher at San Diego State University exploring trustworthy and adaptive Artificial Intelligence.
-My work spans robustness, reasoning, and human-centered AI — bridging socially intelligent and creative human–AI systems, with a focus on real-world robustness and deployment.
-                </p>
+                <div className="space-y-4 mb-6 w-full max-w-full">
+                  <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
+                    I am an undergraduate researcher at <a href="https://www.sdsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">San Diego State University</a> focused on <a href="#research" className="text-primary hover:underline font-medium">self-supervised representation learning</a> and agentic AI systems. My work spans <a href="#research" className="text-primary hover:underline font-medium">large-scale audio embedding learning</a>, multimodal reasoning with vision–language models, and the development of <a href="/documents/ICLR_v1.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">interactive systems that translate structured inputs into executable environments</a>. Across these projects, I examine how learned representations support reasoning, temporal understanding, and adaptive behavior.
+                  </p>
+                  <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
+                    More broadly, I am interested in integrating representation learning and reasoning into systems that move beyond static prediction toward interaction and collaboration. Through work on <a href="#research" className="text-primary hover:underline font-medium">socially intelligent systems</a> and <a href="https://arxiv.org/abs/2512.03289" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">creative human–AI tools</a>, I aim to build AI agents that meaningfully assist and collaborate with humans in socially aware and creative contexts.
+                  </p>
+                </div>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
                   <Button asChild className="w-full sm:w-auto">
                     <a href="#contact">
@@ -209,12 +225,69 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                <AlertTitle>News</AlertTitle>
               <AlertDescription>
                 <ul className="list-disc list-inside space-y-2 mt-2">
-                  <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2025-2026 <span className="font-semibold">CRA Outstanding Undergraduate Researcher Award</span>.</li>
+                  <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2026 <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition by the Computing Research Association).</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 7, 2025]</span> Presented DAWZY at <span className="font-semibold">NeurIPS 2025</span> (AI for Music Workshop) in San Diego.</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 6, 2025]</span> Presented Temp-SCONE at <span className="font-semibold">NeurIPS 2025</span> (Reliable ML for Unreliable Data Workshop) in San Diego.</li>
                 </ul>
               </AlertDescription>
             </Alert>
+          </div>
+        </section>
+
+        <Separator />
+
+        {/* Publications Section */}
+        <section id="publications" className="w-full py-20 md:py-24 overflow-x-hidden max-w-full">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="flex flex-col items-center text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold">Publications</h2>
+            </div>
+            <div className="space-y-6">
+              {publications.map((pub) => (
+                <div key={pub.title} className="py-4 border-b border-border/50 last:border-b-0">
+                  <h3 className="font-semibold text-lg mb-1">{pub.title}</h3>
+                  <p className="text-sm text-muted-foreground mb-2 italic">{pub.authors} {pub.note && <span>({pub.note})</span>}</p>
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mt-2">
+                    <p className="text-sm font-medium">{pub.journal}</p>
+                    <div className="flex flex-wrap gap-2">
+                      <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
+                        <a href={pub.link} target="_blank" rel="noopener noreferrer">
+                          Read Paper <ExternalLink className="ml-2 h-4 w-4" />
+                        </a>
+                      </Button>
+                      {(pub as any).demoLink && (
+                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
+                          <a href={(pub as any).demoLink} target="_blank" rel="noopener noreferrer">
+                            Demo Video <ExternalLink className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {(pub as any).demoPaperLink && (
+                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
+                          <a href={(pub as any).demoPaperLink} target="_blank" rel="noopener noreferrer">
+                            Demo Paper <ExternalLink className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {(pub as any).posterLink && (
+                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
+                          <a href={(pub as any).posterLink} target="_blank" rel="noopener noreferrer">
+                            Poster <ExternalLink className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                      {(pub as any).githubLink && (
+                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
+                          <a href={(pub as any).githubLink} target="_blank" rel="noopener noreferrer">
+                            Code <Github className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -250,6 +323,9 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                     return (
                       <li key={index}>
                         <h3 className="text-lg font-semibold">{project.title}</h3>
+                        {(project as any).idea && (
+                          <p className="text-sm text-foreground/90 mt-1 mb-2 italic">{(project as any).idea}</p>
+                        )}
                         <p className="text-sm text-muted-foreground"><strong>Advisors:</strong> {renderAdvisors()}</p>
                         {(project as any).researchGroup && (
                           <p className="text-sm text-muted-foreground">
@@ -293,6 +369,9 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                     return (
                       <li key={index}>
                         <h3 className="text-lg font-semibold">{project.title}</h3>
+                        {(project as any).idea && (
+                          <p className="text-sm text-foreground/90 mt-1 mb-2 italic">{(project as any).idea}</p>
+                        )}
                         <p className="text-sm text-muted-foreground"><strong>{project.advisors ? 'Advisors:' : 'Advisor:'}</strong> {renderAdvisors()}</p>
                         {(project as any).researchGroup && (
                           <p className="text-sm text-muted-foreground">
@@ -303,6 +382,14 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
                           </p>
                         )}
                         <p className="text-sm text-muted-foreground"><strong>Role:</strong> {project.role}</p>
+                        {(project as any).codeLink && (
+                          <p className="text-sm text-muted-foreground">
+                            <strong>Code:</strong>{' '}
+                            <a href={(project as any).codeLink} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium inline-flex items-center gap-1">
+                              <Github className="h-4 w-4" /> animal2vec (Mar-Lab-Animal2vec)
+                            </a>
+                          </p>
+                        )}
                       </li>
                     );
                   })}
@@ -310,56 +397,6 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
               </div>
             </div>
 
-          </div>
-        </section>
-
-        <Separator />
-        
-        {/* Publications Section */}
-        <section id="publications" className="w-full py-20 md:py-24 overflow-x-hidden max-w-full">
-          <div className="container mx-auto px-4 max-w-4xl">
-            <div className="flex flex-col items-center text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold">Publications</h2>
-            </div>
-            <div className="space-y-6">
-              {publications.map((pub) => (
-                <div key={pub.title} className="py-4 border-b border-border/50 last:border-b-0">
-                  <h3 className="font-semibold text-lg mb-1">{pub.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-2 italic">{pub.authors} {pub.note && <span>({pub.note})</span>}</p>
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mt-2">
-                    <p className="text-sm font-medium">{pub.journal}</p>
-                    <div className="flex flex-wrap gap-2">
-                      <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
-                        <a href={pub.link} target="_blank" rel="noopener noreferrer">
-                          Read Paper <ExternalLink className="ml-2 h-4 w-4" />
-                        </a>
-                      </Button>
-                      {(pub as any).demoLink && (
-                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
-                          <a href={(pub as any).demoLink} target="_blank" rel="noopener noreferrer">
-                            Demo Video <ExternalLink className="ml-2 h-4 w-4" />
-                          </a>
-                        </Button>
-                      )}
-                      {(pub as any).demoPaperLink && (
-                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
-                          <a href={(pub as any).demoPaperLink} target="_blank" rel="noopener noreferrer">
-                            Demo Paper <ExternalLink className="ml-2 h-4 w-4" />
-                          </a>
-                        </Button>
-                      )}
-                      {(pub as any).posterLink && (
-                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
-                          <a href={(pub as any).posterLink} target="_blank" rel="noopener noreferrer">
-                            Poster <ExternalLink className="ml-2 h-4 w-4" />
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -373,7 +410,7 @@ My work spans robustness, reasoning, and human-centered AI — bridging socially
             </div>
             <div className="space-y-8">
               <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground max-w-3xl mx-auto">
-                <li>2025-2026 – <span className="font-medium text-foreground">Honorable Mention</span>, CRA Outstanding Undergraduate Researcher Award</li>
+                <li>2026 – <span className="font-medium text-foreground">Honorable Mention</span>, <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition by the Computing Research Association)</li>
                 <li>2025 – Awarded a <span className="font-medium text-foreground">$3,000 Seed Fund</span> from the Lavin Entrepreneurship Center to support research and development of an independent AI venture.</li>
                 <li>2025 – <span className="font-medium text-foreground">Finalist</span>, UC Berkeley AI Hackathon (DAWZY) — Top 9 of 350+ projects, 1400+ participants</li>
                 <li>2024 – <span className="font-medium text-foreground">TensorFlow Developer Certification</span>, Google</li>
