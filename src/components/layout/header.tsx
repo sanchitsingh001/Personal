@@ -1,7 +1,14 @@
 import { Sheet, SheetContent, SheetClose, SheetTrigger } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { Menu, Mail, Linkedin, FileText, Github, ExternalLink } from 'lucide-react';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip';
+import { Menu, Mail, Linkedin, FileText, Github, ExternalLink, Moon, Sun } from 'lucide-react';
+import { useTheme } from '@/components/theme-provider';
 
 const navLinks = [
   { href: '#home', label: 'Home' },
@@ -18,6 +25,34 @@ const socialLinks = [
   { href: 'https://github.com/sanchitsingh001', label: 'GitHub', icon: Github },
   { href: 'https://devpost.com/sanchittech0-01', label: 'Devpost', icon: ExternalLink },
 ];
+
+function ThemeToggle() {
+  const { theme, toggleTheme } = useTheme();
+  return (
+    <TooltipProvider delayDuration={200}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={toggleTheme}
+            className="h-9 w-9 text-muted-foreground hover:text-foreground"
+            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent side="bottom" className="text-xs">
+          {theme === 'dark' ? 'Light mode' : 'Dark mode'}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
 
 export function Header() {
   return (
@@ -36,6 +71,8 @@ export function Header() {
               </a>
             ))}
             <Separator orientation="vertical" className="h-6" />
+            <ThemeToggle />
+            <Separator orientation="vertical" className="h-6" />
             <Button asChild variant="secondary">
               <a href="/documents/Sanchit_Singh_CV.pdf" target="_blank" rel="noopener noreferrer">
                 <FileText className="mr-2 h-4 w-4" /> Resume/CV
@@ -49,6 +86,8 @@ export function Header() {
           <a href="/" className="mr-6 flex items-center space-x-2">
             <span className="font-bold"></span>
           </a>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="icon">
@@ -85,6 +124,7 @@ export function Header() {
               </nav>
             </SheetContent>
           </Sheet>
+          </div>
         </div>
       </div>
       
