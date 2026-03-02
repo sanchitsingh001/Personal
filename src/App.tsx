@@ -14,7 +14,7 @@ const publications = [
   {
     title: 'Training-Free Construction of Executable 3D Worlds from Narrative Text',
     authors: 'Singh, Sanchit',
-    journal: 'Preprint, 2026 — Currently under review at ICLR Workshop on World Models',
+    journal: 'The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop), 2026',
     link: '/documents/ICLR_v1.pdf',
     githubLink: 'https://github.com/sanchitsingh001/NarrativeWorlds',
   },
@@ -225,9 +225,10 @@ function App() {
                <AlertTitle>News</AlertTitle>
               <AlertDescription>
                 <ul className="list-disc list-inside space-y-2 mt-2">
-                  <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2026 <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition by the Computing Research Association).</li>
-                  <li><span className="text-muted-foreground text-sm">[Dec 7, 2025]</span> Presented DAWZY at <span className="font-semibold">NeurIPS 2025</span> (AI for Music Workshop) in San Diego.</li>
-                  <li><span className="text-muted-foreground text-sm">[Dec 6, 2025]</span> Presented Temp-SCONE at <span className="font-semibold">NeurIPS 2025</span> (Reliable ML for Unreliable Data Workshop) in San Diego.</li>
+                  <li><span className="text-muted-foreground text-sm">[Mar 1, 2026]</span> My solo author paper <span className="font-semibold">"Training-Free Construction of Executable 3D Worlds from Narrative Text"</span> was accepted to <span className="font-semibold">The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop)</span>.</li>
+                  <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2026 <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition; top undergraduate researchers in North America).</li>
+                  <li><span className="text-muted-foreground text-sm">[Dec 7, 2025]</span> Presented DAWZY at <span className="font-semibold">NeurIPS 2025</span> (AI for Music Workshop), San Diego.</li>
+                  <li><span className="text-muted-foreground text-sm">[Dec 6, 2025]</span> Presented Temp-SCONE at <span className="font-semibold">NeurIPS 2025</span> (Reliable ML for Unreliable Data Workshop), San Diego.</li>
                 </ul>
               </AlertDescription>
             </Alert>
@@ -410,7 +411,7 @@ function App() {
             </div>
             <div className="space-y-8">
               <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground max-w-3xl mx-auto">
-                <li>2026 – <span className="font-medium text-foreground">Honorable Mention</span>, <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition by the Computing Research Association)</li>
+                <li>2026 – <span className="font-medium text-foreground">Honorable Mention</span>, <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition; top undergraduate researchers in North America)</li>
                 <li>2025 – Awarded a <span className="font-medium text-foreground">$3,000 Seed Fund</span> from the Lavin Entrepreneurship Center to support research and development of an independent AI venture.</li>
                 <li>2025 – <span className="font-medium text-foreground">Finalist</span>, UC Berkeley AI Hackathon (DAWZY) — Top 9 of 350+ projects, 1400+ participants</li>
                 <li>2024 – <span className="font-medium text-foreground">TensorFlow Developer Certification</span>, Google</li>
