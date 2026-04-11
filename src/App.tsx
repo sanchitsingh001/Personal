@@ -12,10 +12,10 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 
 const publications = [
   {
-    title: 'Training-Free Construction of Executable 3D Worlds from Narrative Text',
+    title: 'Modular Training-Free Construction of Executable 3D Worlds from Narrative Text',
     authors: 'Singh, Sanchit',
     journal: 'The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop), 2026',
-    link: '/documents/ICLR_v1.pdf',
+    link: 'https://openreview.net/forum?id=aj6jxs2key#discussion',
     githubLink: 'https://github.com/sanchitsingh001/NarrativeWorlds',
   },
   {
@@ -196,7 +196,7 @@ function App() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 w-full">Sanchit Singh</h1>
                 <div className="space-y-4 mb-6 w-full max-w-full">
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    I am an undergraduate researcher at <a href="https://www.sdsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">San Diego State University</a> working on <a href="#research" className="text-primary hover:underline font-medium">self-supervised representation learning</a> and agentic AI systems. My work spans <a href="#research" className="text-primary hover:underline font-medium">large-scale audio embedding learning</a>, multimodal reasoning with vision–language models, and the development of <a href="/documents/ICLR_v1.pdf" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">interactive systems that translate structured inputs into executable environments</a>. Across these projects, I examine how learned representations support reasoning, temporal understanding, and adaptive behavior.
+                    I am an undergraduate researcher at <a href="https://www.sdsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">San Diego State University</a> working on <a href="#research" className="text-primary hover:underline font-medium">self-supervised representation learning</a> and agentic AI systems. My work spans <a href="#research" className="text-primary hover:underline font-medium">large-scale audio embedding learning</a>, multimodal reasoning with vision–language models, and the development of <a href="https://openreview.net/forum?id=aj6jxs2key#discussion" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">interactive systems that translate structured inputs into executable environments</a>. Across these projects, I examine how learned representations support reasoning, temporal understanding, and adaptive behavior.
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
                     More broadly, I am interested in integrating representation learning and reasoning into systems that move beyond static prediction toward interaction and collaboration. Through work on <a href="#research" className="text-primary hover:underline font-medium">socially intelligent systems</a> and <a href="https://arxiv.org/abs/2512.03289" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">creative human–AI tools</a>, I aim to build AI agents that meaningfully assist and collaborate with humans in socially aware and creative contexts.
@@ -225,7 +225,7 @@ function App() {
                <AlertTitle>News</AlertTitle>
               <AlertDescription>
                 <ul className="list-disc list-inside space-y-2 mt-2">
-                  <li><span className="text-muted-foreground text-sm">[Mar 1, 2026]</span> My solo author paper <span className="font-semibold">"Training-Free Construction of Executable 3D Worlds from Narrative Text"</span> was accepted to <span className="font-semibold">The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop)</span>.</li>
+                  <li><span className="text-muted-foreground text-sm">[Mar 1, 2026]</span> My solo author paper <span className="font-semibold">"Modular Training-Free Construction of Executable 3D Worlds from Narrative Text"</span> was accepted to <span className="font-semibold">The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop)</span>.</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2026 <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition; top undergraduate researchers in North America).</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 7, 2025]</span> Presented DAWZY at <span className="font-semibold">NeurIPS 2025</span> (AI for Music Workshop), San Diego.</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 6, 2025]</span> Presented Temp-SCONE at <span className="font-semibold">NeurIPS 2025</span> (Reliable ML for Unreliable Data Workshop), San Diego.</li>
