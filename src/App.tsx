@@ -109,6 +109,19 @@ const completedProjects = [
 
 const ongoingProjects = [
     {
+        title: 'Human–AI Interaction in Agentic Research Systems',
+        idea: 'Investigating how feedback mechanisms shape interaction between researchers and AI research agents. This work examines how people communicate guidance, corrections, and evaluations to agentic systems, and how different forms of feedback influence the systems’ reasoning, revision processes, and research outcomes.',
+        advisors: 'Prof. Xiang “Anthony” Chen',
+        role: 'Visiting Researcher — research design, feedback mechanism development, system prototyping, and evaluation.',
+        linkedAdvisors: {
+            'Xiang “Anthony” Chen': 'https://hci.prof/'
+        },
+        researchGroup: {
+            name: 'UCLA HCI Group',
+            link: 'https://hci.ucla.edu/'
+        }
+    },
+    {
         title: 'Self-Supervised Bioacoustics',
         idea: 'Applying self-supervised representation learning to animal vocalizations for robust acoustic analysis and wildlife monitoring.',
         advisors: 'Hajar Homayouni, Marie Roch (with San Diego Zoo Wildlife Alliance)',
@@ -196,10 +209,13 @@ function App() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 w-full">Sanchit Singh</h1>
                 <div className="space-y-4 mb-6 w-full max-w-full">
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    I am an undergraduate researcher at <a href="https://www.sdsu.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">San Diego State University</a> working on <a href="#research" className="text-primary hover:underline font-medium">self-supervised representation learning</a> and agentic AI systems. My work spans <a href="#research" className="text-primary hover:underline font-medium">large-scale audio embedding learning</a>, multimodal reasoning with vision–language models, and the development of <a href="https://openreview.net/forum?id=aj6jxs2key#discussion" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">interactive systems that translate structured inputs into executable environments</a>. Across these projects, I examine how learned representations support reasoning, temporal understanding, and adaptive behavior.
+                    I am a Visiting Researcher at <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">UCLA</a> working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Prof. Xiang “Anthony” Chen</a> on human–AI interaction in agentic research systems. My current research focuses on designing human-in-the-loop supervision mechanisms that enable AI research agents to incorporate expert feedback through structured, editable, and traceable revision workflows.
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    More broadly, I am interested in integrating representation learning and reasoning into systems that move beyond static prediction toward interaction and collaboration. Through work on <a href="#research" className="text-primary hover:underline font-medium">socially intelligent systems</a> and <a href="https://arxiv.org/abs/2512.03289" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">creative human–AI tools</a>, I aim to build AI agents that meaningfully assist and collaborate with humans in socially aware and creative contexts.
+                    More broadly, my research spans agentic AI, representation learning, multimodal reasoning, and human–AI collaboration. I have worked on <a href="#research" className="text-primary hover:underline font-medium">self-supervised learning for large-scale bioacoustic data</a>, <a href="https://arxiv.org/abs/2512.04571" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">temporal out-of-distribution generalization</a>, vision–language models for <a href="#research" className="text-primary hover:underline font-medium">socially intelligent systems</a>, and interactive tools for <a href="https://arxiv.org/abs/2512.03289" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">music creation</a> and <a href="https://openreview.net/forum?id=aj6jxs2key#discussion" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">executable 3D world generation</a>.
+                  </p>
+                  <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
+                    My long-term goal is to build AI systems that move beyond static prediction toward reliable reasoning, interaction, and collaboration with humans in scientific, creative, and socially grounded environments.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
@@ -225,6 +241,7 @@ function App() {
                <AlertTitle>News</AlertTitle>
               <AlertDescription>
                 <ul className="list-disc list-inside space-y-2 mt-2">
+                  <li><span className="text-muted-foreground text-sm">[Jul. 2026]</span> Joined <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">UCLA</a> as a Visiting Researcher working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">Prof. Xiang “Anthony” Chen</a> on human–AI interaction and the role of feedback mechanisms in agentic research systems.</li>
                   <li><span className="text-muted-foreground text-sm">[Mar 1, 2026]</span> My solo author paper <span className="font-semibold">"Modular Training-Free Construction of Executable 3D Worlds from Narrative Text"</span> was accepted to <span className="font-semibold">The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop)</span>.</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2026 <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition; top undergraduate researchers in North America).</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 7, 2025]</span> Presented DAWZY at <span className="font-semibold">NeurIPS 2025</span> (AI for Music Workshop), San Diego.</li>
@@ -373,7 +390,7 @@ function App() {
                         {(project as any).idea && (
                           <p className="text-sm text-foreground/90 mt-1 mb-2 italic">{(project as any).idea}</p>
                         )}
-                        <p className="text-sm text-muted-foreground"><strong>{project.advisors ? 'Advisors:' : 'Advisor:'}</strong> {renderAdvisors()}</p>
+                        <p className="text-sm text-muted-foreground"><strong>{project.advisors.includes(',') ? 'Advisors:' : 'Advisor:'}</strong> {renderAdvisors()}</p>
                         {(project as any).researchGroup && (
                           <p className="text-sm text-muted-foreground">
                             <strong>Research Group:</strong> 

@@ -22,11 +22,14 @@ Academic/research portfolio website for Sanchit Singh, showcasing publications, 
 | src/globals.css | CSS variables for light/dark themes |
 
 ## Current State
-- Last updated: Feb 21, 2026
-- Theme: Dark/light toggle added with dark as default. Persists in localStorage. Toggle in header (desktop and mobile).
-- Intro: Hyperlinks added for SDSU, research section, narrative worlds, DAWZY; bioacoustics ongoing project includes animal2vec GitHub code link.
-- Research Journey: Each project now has a one-line "research idea" summary to aid PI skimming (intellectual contribution, not just role).
+- Last updated: Jul 27, 2026
+- Site CV (`public/documents/Sanchit_Singh_CV.pdf`) replaced with `Research_CV.pdf` (Resume/CV button unchanged).
+- Intro bio + News: Visiting Researcher at UCLA with Prof. Xiang “Anthony” Chen (Jul. 2026 news item).
+- Ongoing Projects: added Human–AI Interaction in Agentic Research Systems (UCLA HCI Group; listed first).
+- ICLR World Models workshop paper title prefixed with "Modular"; OpenReview links for paper + narrative worlds.
+- Theme: Dark/light toggle (dark default, localStorage). Header toggle on desktop and mobile.
+- Research Journey: one-line "research idea" per project; bioacoustics includes animal2vec GitHub link.
 - Section order: Hero → News → Publications → Research Journey → Awards → Contact.
 
 ## Active Tasks
-- None currently
+- Portfolio content updates for UCLA move (in progress)
