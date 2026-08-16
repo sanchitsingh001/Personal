@@ -15,7 +15,7 @@ const publications = [
     title: 'Modular Training-Free Construction of Executable 3D Worlds from Narrative Text',
     authors: 'Singh, Sanchit',
     journal: 'The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop), 2026',
-    link: 'https://openreview.net/forum?id=aj6jxs2key#discussion',
+    link: 'https://openreview.net/forum?id=aj6jxs2key',
     githubLink: 'https://github.com/sanchitsingh001/NarrativeWorlds',
   },
   {
@@ -30,14 +30,14 @@ const publications = [
     title: 'Training Socially Intelligent Robots with Large Behavior Models: Challenges, Strategies, and Future Research Opportunities',
     authors: 'Singh, Sanchit, Elkins, Aaron, Pourebadi, Mary, Amadasun, Uyiosa, & Abhari, Kaveh',
     journal: 'Proceedings of the International Conference on Information Systems (ICIS 2025), 2025',
-    link: '/documents/icis-2025-paper.pdf',
+    link: 'https://aisel.aisnet.org/icis2025/isdesign/isdesign/11/',
     note: '*equal contribution',
   },
   {
     title: 'DAWZY: A New Addition to AI powered "Human in the Loop" Music Co-creation',
     authors: 'Singh, Sanchit, Elkins, Aaron, Blankenship, Sawyer, Kieback, Adrian, Amadasun, Uyiosa, & Chadha, Aman',
     journal: 'NeurIPS 2025 Workshop on AI for Music, 2025',
-    link: 'https://arxiv.org/abs/2512.03289',
+    link: 'https://openreview.net/forum?id=l3tVN08tyh',
     demoLink: 'https://www.youtube.com/watch?v=RQmCuYLkEDk',
     demoPaperLink: '/documents/neurips-dawzy-2page.pdf',
     posterLink: '/documents/NeurIPS_Dawzy_Poster .pdf',
@@ -47,7 +47,7 @@ const publications = [
     title: 'Designing Socially Grounded Data Pipelines for Training and Operating Socially Intelligent Robots: Challenges and Future Directions',
     authors: 'Singh, Sanchit, Elkins, Aaron, Pourebadi, Mary, Amadasun, Uyiosa, & Abhari, Kaveh',
     journal: 'Proceedings of The Hawaii International Conference on System Sciences (HICSS 2026), 2026',
-    link: '/documents/hicss-2026-paper.pdf',
+    link: 'https://doi.org/10.24251/HICSS.2026.231',
     note: '*equal contribution',
   },
 ];
@@ -112,7 +112,7 @@ const ongoingProjects = [
         title: 'Human–AI Interaction in Agentic Research Systems',
         idea: 'Investigating how feedback mechanisms shape interaction between researchers and AI research agents. This work examines how people communicate guidance, corrections, and evaluations to agentic systems, and how different forms of feedback influence the systems’ reasoning, revision processes, and research outcomes.',
         advisors: 'Prof. Xiang “Anthony” Chen',
-        role: 'Visiting Researcher — research design, feedback mechanism development, system prototyping, and evaluation.',
+        role: 'Visiting Scholar — research design, feedback mechanism development, system prototyping, and evaluation.',
         linkedAdvisors: {
             'Xiang “Anthony” Chen': 'https://hci.prof/'
         },
@@ -209,13 +209,13 @@ function App() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 w-full">Sanchit Singh</h1>
                 <div className="space-y-4 mb-6 w-full max-w-full">
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    I am a Visiting Researcher at <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">UCLA</a> working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Prof. Xiang “Anthony” Chen</a> on human–AI interaction in agentic research systems. My current research focuses on designing human-in-the-loop supervision mechanisms that enable AI research agents to incorporate expert feedback through structured, editable, and traceable revision workflows.
+                    I am a Visiting Scholar at <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">UCLA</a> working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Prof. Xiang “Anthony” Chen</a> on human–AI interaction for agentic scientific research. My current research investigates how human input can improve the quality of research produced by autonomous AI systems, with the goal of outperforming fully autonomous AI baselines. I am particularly interested in when humans are most valuable, what kinds of information they should contribute, and how that input affects the final research output across the full process from scientific ideation and experimental planning to execution and results.
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    More broadly, my research spans agentic AI, representation learning, multimodal reasoning, and human–AI collaboration. I have worked on <a href="#research" className="text-primary hover:underline font-medium">self-supervised learning for large-scale bioacoustic data</a>, <a href="https://arxiv.org/abs/2512.04571" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">temporal out-of-distribution generalization</a>, vision–language models for <a href="#research" className="text-primary hover:underline font-medium">socially intelligent systems</a>, and interactive tools for <a href="https://arxiv.org/abs/2512.03289" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">music creation</a> and <a href="https://openreview.net/forum?id=aj6jxs2key#discussion" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">executable 3D world generation</a>.
+                    More broadly, I am interested in how people interact and collaborate with increasingly capable AI systems. My work spans human–AI collaboration, AI agents, generative AI, and multimodal interaction, supported by a technical foundation in modern machine learning through research on <a href="https://arxiv.org/abs/2512.04571" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">temporal out-of-distribution generalization</a>, <a href="#research" className="text-primary hover:underline font-medium">self-supervised representation learning</a>, and <a href="https://aisel.aisnet.org/icis2025/isdesign/isdesign/11/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">vision–language models</a>. I have explored these questions across scientific, creative, and socially grounded settings, including <a href="https://openreview.net/forum?id=l3tVN08tyh" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI-assisted music creation</a>, <a href="#research" className="text-primary hover:underline font-medium">socially intelligent systems</a>, and <a href="https://openreview.net/forum?id=aj6jxs2key" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">executable 3D world generation</a>.
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    My long-term goal is to build AI systems that move beyond static prediction toward reliable reasoning, interaction, and collaboration with humans in scientific, creative, and socially grounded environments.
+                    My long-term research goal is to understand where human involvement meaningfully improves increasingly autonomous AI systems and to design forms of human–AI collaboration that produce better, more reliable, and more useful outcomes than either humans or AI working independently.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
@@ -225,7 +225,7 @@ function App() {
                     </a>
                   </Button>
                   <Button variant="secondary" asChild className="w-full sm:w-auto">
-                    <a href="/documents/Sanchit_Singh_CV.pdf" target="_blank" rel="noopener noreferrer">
+                    <a href="/documents/Sanchit_Singh.pdf" target="_blank" rel="noopener noreferrer">
                       <FileText className="mr-2 h-4 w-4" /> Resume/CV
                     </a>
                   </Button>
@@ -241,7 +241,7 @@ function App() {
                <AlertTitle>News</AlertTitle>
               <AlertDescription>
                 <ul className="list-disc list-inside space-y-2 mt-2">
-                  <li><span className="text-muted-foreground text-sm">[Jul. 2026]</span> Joined <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">UCLA</a> as a Visiting Researcher working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">Prof. Xiang “Anthony” Chen</a> on human–AI interaction and the role of feedback mechanisms in agentic research systems.</li>
+                  <li><span className="text-muted-foreground text-sm">[Jul. 2026]</span> Joined <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">UCLA</a> as a Visiting Scholar working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">Prof. Xiang “Anthony” Chen</a> on human–AI interaction and the role of feedback mechanisms in agentic research systems.</li>
                   <li><span className="text-muted-foreground text-sm">[Mar 1, 2026]</span> My solo author paper <span className="font-semibold">"Modular Training-Free Construction of Executable 3D Worlds from Narrative Text"</span> was accepted to <span className="font-semibold">The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop)</span>.</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2026 <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition; top undergraduate researchers in North America).</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 7, 2025]</span> Presented DAWZY at <span className="font-semibold">NeurIPS 2025</span> (AI for Music Workshop), San Diego.</li>

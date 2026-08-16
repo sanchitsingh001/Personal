@@ -7,7 +7,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '@/components/ui/tooltip';
-import { Menu, Mail, Linkedin, FileText, Github, ExternalLink, Moon, Sun } from 'lucide-react';
+import { Menu, Mail, Linkedin, FileText, Github, ExternalLink, Moon, Sun, GraduationCap } from 'lucide-react';
 import { useTheme } from '@/components/theme-provider';
 
 const navLinks = [
@@ -21,6 +21,7 @@ const navLinks = [
 
 const socialLinks = [
   { href: 'mailto:sanchittech0.01@gmail.com', label: 'Email', icon: Mail },
+  { href: 'https://scholar.google.com/citations?user=3tZbB9sAAAAJ&hl=en', label: 'Google Scholar', icon: GraduationCap },
   { href: 'https://www.linkedin.com/in/sanchitsingh001/', label: 'LinkedIn', icon: Linkedin },
   { href: 'https://github.com/sanchitsingh001', label: 'GitHub', icon: Github },
   { href: 'https://devpost.com/sanchittech0-01', label: 'Devpost', icon: ExternalLink },
@@ -74,7 +75,7 @@ export function Header() {
             <ThemeToggle />
             <Separator orientation="vertical" className="h-6" />
             <Button asChild variant="secondary">
-              <a href="/documents/Sanchit_Singh_CV.pdf" target="_blank" rel="noopener noreferrer">
+              <a href="/documents/Sanchit_Singh.pdf" target="_blank" rel="noopener noreferrer">
                 <FileText className="mr-2 h-4 w-4" /> Resume/CV
               </a>
             </Button>
@@ -107,7 +108,7 @@ export function Header() {
                 <Separator />
                 <div className="flex flex-col gap-4">
                   <Button asChild>
-                     <a href="/documents/Sanchit_Singh_CV.pdf" target="_blank" rel="noopener noreferrer">
+                     <a href="/documents/Sanchit_Singh.pdf" target="_blank" rel="noopener noreferrer">
                       <FileText className="mr-2 h-4 w-4" /> Resume/CV
                     </a>
                   </Button>

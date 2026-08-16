@@ -42,9 +42,13 @@ jobs:
             --delete \
             --cache-control "public, max-age=31536000, immutable" \
             --exclude "index.html" \
-            --exclude "*.html"
+            --exclude "*.html" \
+            --exclude "*.pdf"
           aws s3 sync dist/ s3://${{ vars.AWS_S3_BUCKET }} \
-            --delete \
+            --cache-control "public, max-age=0, must-revalidate" \
+            --exclude "*" \
+            --include "*.pdf"
+          aws s3 sync dist/ s3://${{ vars.AWS_S3_BUCKET }} \
             --cache-control "public, max-age=0, must-revalidate" \
             --exclude "*" \
             --include "index.html" \

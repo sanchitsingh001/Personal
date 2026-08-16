@@ -22,9 +22,10 @@ Academic/research portfolio website for Sanchit Singh, showcasing publications, 
 | src/globals.css | CSS variables for light/dark themes |
 
 ## Current State
-- Last updated: Jul 27, 2026
-- Site CV (`public/documents/Sanchit_Singh_CV.pdf`) replaced with `Research_CV.pdf` (Resume/CV button unchanged).
-- Intro bio + News: Visiting Researcher at UCLA with Prof. Xiang “Anthony” Chen (Jul. 2026 news item).
+- Last updated: Aug 16, 2026
+- Resume/CV button now opens `/documents/Sanchit_Singh.pdf` (new URL so CloudFront/browser do not serve the old cached CV). PDFs are no longer cached as immutable for 1 year in the S3 deploy.
+- Intro bio rewritten around HCI/collaboration framing (Visiting Scholar at UCLA); News uses Visiting Scholar.
+- Header social row includes Google Scholar alongside Email, LinkedIn, GitHub, and Devpost.
 - Ongoing Projects: added Human–AI Interaction in Agentic Research Systems (UCLA HCI Group; listed first).
 - ICLR World Models workshop paper title prefixed with "Modular"; OpenReview links for paper + narrative worlds.
 - Theme: Dark/light toggle (dark default, localStorage). Header toggle on desktop and mobile.
@@ -32,4 +33,4 @@ Academic/research portfolio website for Sanchit Singh, showcasing publications, 
 - Section order: Hero → News → Publications → Research Journey → Awards → Contact.
 
 ## Active Tasks
-- Portfolio content updates for UCLA move (in progress)
+- None currently
