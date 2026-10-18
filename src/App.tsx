@@ -48,6 +48,7 @@ const publications = [
     journal: 'NeurIPS 2025 Workshop on Reliable Machine Learning for Unreliable Data, 2025',
     link: 'https://arxiv.org/abs/2512.04571',
     posterLink: '/documents/OOD_Poster.pdf',
+    githubLink: 'https://github.com/sanchitsingh001/temporal-scone',
     note: '*equal contribution',
   },
   {
@@ -82,7 +83,8 @@ const completedProjects = [
             name: 'MAR Lab',
             link: 'https://roch.sdsu.edu/index.php/research-overview/'
         },
-        codeLink: 'https://github.com/sanchitsingh001/Mar-Lab-Animal2vec'
+        codeLink: 'https://github.com/sanchitsingh001/Mar-Lab-Animal2vec',
+        codeLabel: 'animal2vec (Mar-Lab-Animal2vec)',
     },
     {
         title: 'Temporal OOD Detection (Temp-SCONE)',
@@ -96,7 +98,9 @@ const completedProjects = [
         researchGroup: {
             name: 'Sekeh Lab',
             link: 'https://salimehsekeh.wixsite.com/sekeh-lab'
-        }
+        },
+        codeLink: 'https://github.com/sanchitsingh001/temporal-scone',
+        codeLabel: 'temporal-scone',
     },
     {
         title: 'Socially Intelligent Robots',
@@ -428,7 +432,7 @@ function App() {
                           <p className="text-sm text-muted-foreground">
                             <strong>Code:</strong>{' '}
                             <a href={(project as any).codeLink} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium inline-flex items-center gap-1">
-                              <Github className="h-4 w-4" /> animal2vec (Mar-Lab-Animal2vec)
+                              <Github className="h-4 w-4" /> {(project as any).codeLabel || 'Code'}
                             </a>
                           </p>
                         )}
