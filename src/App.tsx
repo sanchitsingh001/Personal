@@ -13,46 +13,77 @@ import { Dialog, DialogContent } from '@/components/ui/dialog';
 const publications = [
   {
     title: 'Modular Training-Free Construction of Executable 3D Worlds from Narrative Text',
-    authors: 'Singh, Sanchit',
+    authors: 'Sanchit Singh',
     journal: 'The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop), 2026',
     link: 'https://openreview.net/forum?id=aj6jxs2key',
     githubLink: 'https://github.com/sanchitsingh001/NarrativeWorlds',
   },
   {
-    title: 'Temp-SCONE: A Novel Out-of-Distribution Detection and Domain Generalization Framework for Wild Data with Temporal Shift',
-    authors: 'Singh, Sanchit, Naiknaware, Aditi, Sekeh, Salimeh, & Homayouni, Hajar',
-    journal: 'NeurIPS 2025 Workshop on Reliable Machine Learning for Unreliable Data, 2025',
-    link: 'https://arxiv.org/abs/2512.04571',
-    posterLink: '/documents/OOD_Poster.pdf',
+    title: 'Designing Socially Grounded Data Pipelines for Training and Operating Socially Intelligent Robots: Challenges and Future Directions',
+    authors: 'Aaron Elkins, Sanchit Singh*, Mary Pourebadi, Uyiosa Amadasun, Aman Chadha, Kaveh Abhari',
+    journal: 'Proceedings of The Hawaii International Conference on System Sciences (HICSS 2026), 2026',
+    link: 'https://doi.org/10.24251/HICSS.2026.231',
     note: '*equal contribution',
   },
   {
     title: 'Training Socially Intelligent Robots with Large Behavior Models: Challenges, Strategies, and Future Research Opportunities',
-    authors: 'Singh, Sanchit, Elkins, Aaron, Pourebadi, Mary, Amadasun, Uyiosa, & Abhari, Kaveh',
+    authors: 'Aaron Elkins, Sanchit Singh*, Mary Pourebadi, Uyiosa Amadasun, Kaveh Abhari',
     journal: 'Proceedings of the International Conference on Information Systems (ICIS 2025), 2025',
     link: 'https://aisel.aisnet.org/icis2025/isdesign/isdesign/11/',
     note: '*equal contribution',
   },
   {
     title: 'DAWZY: A New Addition to AI powered "Human in the Loop" Music Co-creation',
-    authors: 'Singh, Sanchit, Elkins, Aaron, Blankenship, Sawyer, Kieback, Adrian, Amadasun, Uyiosa, & Chadha, Aman',
+    authors: 'Aaron C. Elkins, Sanchit Singh*, Adrian Kieback, Sawyer Blankenship, Uyiosa Philip Amadasun, Aman Chadha',
     journal: 'NeurIPS 2025 Workshop on AI for Music, 2025',
     link: 'https://openreview.net/forum?id=l3tVN08tyh',
     demoLink: 'https://www.youtube.com/watch?v=RQmCuYLkEDk',
     demoPaperLink: '/documents/neurips-dawzy-2page.pdf',
     posterLink: '/documents/NeurIPS_Dawzy_Poster .pdf',
-    note: '*equal contribution - Selected for both 4-page paper track and 2-page demo track',
+    note: '*equal contribution — Selected for both 4-page paper track and 2-page demo track',
   },
   {
-    title: 'Designing Socially Grounded Data Pipelines for Training and Operating Socially Intelligent Robots: Challenges and Future Directions',
-    authors: 'Singh, Sanchit, Elkins, Aaron, Pourebadi, Mary, Amadasun, Uyiosa, & Abhari, Kaveh',
-    journal: 'Proceedings of The Hawaii International Conference on System Sciences (HICSS 2026), 2026',
-    link: 'https://doi.org/10.24251/HICSS.2026.231',
+    title: 'Temp-SCONE: A Novel Out-of-Distribution Detection and Domain Generalization Framework for Wild Data with Temporal Shift',
+    authors: 'Aditi Naiknaware*, Sanchit Singh*, Hajar Homayouni, Salimeh Sekeh',
+    journal: 'NeurIPS 2025 Workshop on Reliable Machine Learning for Unreliable Data, 2025',
+    link: 'https://arxiv.org/abs/2512.04571',
+    posterLink: '/documents/OOD_Poster.pdf',
     note: '*equal contribution',
+  },
+  {
+    title: 'Contrastive self-supervised learning improves the ability to discriminate between animal vocalizations without requiring labeled training data',
+    authors: 'Sanchit Singh, Julian C. Schäfer-Zimmermann, Erica Fleishman, Marie A. Roch, Hajar Homayouni',
+    journal: 'Under review at The Journal of the Acoustical Society of America (JASA), 2026',
+    underReview: true,
   },
 ];
 
 const completedProjects = [
+    {
+        title: 'DAWZY: Creative AI for Human-AI Collaboration',
+        idea: 'Built an AI-powered human-in-the-loop music co-creation tool that enables collaborative creative workflows between humans and AI. Designed and conducted a 21-participant Mean Opinion Score (MOS) evaluation assessing usability, control, learning, collaboration, and enjoyment, with mean ratings of 4.48/5 for enjoyment and 4.29/5 for collaboration.',
+        advisors: '— (Independent Research Project)',
+        role: 'Lead researcher and equal first author',
+        researchGroup: {
+            name: 'James Silberrad Brown Center for Artificial Intelligence',
+            link: 'https://business.sdsu.edu/centers-institutes/ai'
+        }
+    },
+    {
+        title: 'Self-Supervised Bioacoustics',
+        idea: 'Developed self-supervised contrastive learning methods for bioacoustic representation learning, improving clustering agreement with animal vocalization classes (AMI: 0.244 to 0.474) without requiring species or call-type labels during training.',
+        advisors: 'Hajar Homayouni, Marie Roch (with San Diego Zoo Wildlife Alliance)',
+        role: 'Student researcher — model design, representation learning, and evaluation.',
+        linkedAdvisors: {
+            'Hajar Homayouni': 'https://homayouni.sdsu.edu/',
+            'Marie Roch': 'https://roch.sdsu.edu/'
+        },
+        researchGroup: {
+            name: 'MAR Lab',
+            link: 'https://roch.sdsu.edu/index.php/research-overview/'
+        },
+        codeLink: 'https://github.com/sanchitsingh001/Mar-Lab-Animal2vec'
+    },
     {
         title: 'Temporal OOD Detection (Temp-SCONE)',
         idea: 'Developed a temporal extension of SCONE to improve OOD detection under distribution shifts.',
@@ -83,16 +114,6 @@ const completedProjects = [
         }
     },
     {
-        title: 'DAWZY: Creative AI for Human-AI Collaboration',
-        idea: 'Built an AI-powered human-in-the-loop music co-creation tool that enables collaborative creative workflows between humans and AI.',
-        advisors: '— (Independent Research Project)',
-        role: 'Lead researcher and equal first author',
-        researchGroup: {
-            name: 'James Silberrad Brown Center for Artificial Intelligence',
-            link: 'https://business.sdsu.edu/centers-institutes/ai'
-        }
-    },
-    {
         title: 'Privacy in Graph Learning',
         idea: 'Designed target-shadow-attack pipelines and evaluation frameworks to study privacy risks in graph neural networks.',
         advisors: 'Joann Chen',
@@ -110,9 +131,9 @@ const completedProjects = [
 const ongoingProjects = [
     {
         title: 'Human–AI Interaction in Agentic Research Systems',
-        idea: 'Investigating how feedback mechanisms shape interaction between researchers and AI research agents. This work examines how people communicate guidance, corrections, and evaluations to agentic systems, and how different forms of feedback influence the systems’ reasoning, revision processes, and research outcomes.',
+        idea: 'Investigating human–AI collaboration in autonomous research systems, with a focus on scientific discovery, expert involvement, and evaluation. Conducted empirical studies examining whether AI-simulated domain experts can reliably evaluate expert-facing research interfaces. Compared AI-generated assessments against human participant evaluations across usability, workload, and other post-use measures, identifying limitations in reproducing individual human judgments.',
         advisors: 'Prof. Xiang “Anthony” Chen',
-        role: 'Visiting Scholar — research design, feedback mechanism development, system prototyping, and evaluation.',
+        role: 'Visiting Scholar — research design, agent simulation, empirical evaluation, and analysis.',
         linkedAdvisors: {
             'Xiang “Anthony” Chen': 'https://hci.prof/'
         },
@@ -121,21 +142,6 @@ const ongoingProjects = [
             link: 'https://hci.ucla.edu/'
         }
     },
-    {
-        title: 'Self-Supervised Bioacoustics',
-        idea: 'Applying self-supervised representation learning to animal vocalizations for robust acoustic analysis and wildlife monitoring.',
-        advisors: 'Hajar Homayouni, Marie Roch (with San Diego Zoo Wildlife Alliance)',
-        role: 'Student researcher — model design, representation learning, and evaluation.',
-        linkedAdvisors: {
-            'Hajar Homayouni': 'https://homayouni.sdsu.edu/',
-            'Marie Roch': 'https://roch.sdsu.edu/'
-        },
-        researchGroup: {
-            name: 'MAR Lab',
-            link: 'https://roch.sdsu.edu/index.php/research-overview/'
-        },
-        codeLink: 'https://github.com/sanchitsingh001/Mar-Lab-Animal2vec'
-    }
 ];
 
 function App() {
@@ -209,13 +215,16 @@ function App() {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-4 w-full">Sanchit Singh</h1>
                 <div className="space-y-4 mb-6 w-full max-w-full">
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    I am a Visiting Scholar at <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">UCLA</a> working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Prof. Xiang “Anthony” Chen</a> on human–AI interaction for agentic scientific research. My current research investigates how human input can improve the quality of research produced by autonomous AI systems, with the goal of outperforming fully autonomous AI baselines. I am particularly interested in when humans are most valuable, what kinds of information they should contribute, and how that input affects the final research output across the full process from scientific ideation and experimental planning to execution and results.
+                    I am a Visiting Scholar at <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">UCLA</a>, working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">Prof. Xiang “Anthony” Chen</a> on human–AI interaction and collaboration in increasingly autonomous AI systems, particularly those supporting scientific research.
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    More broadly, I am interested in how people interact and collaborate with increasingly capable AI systems. My work spans human–AI collaboration, AI agents, generative AI, and multimodal interaction, supported by a technical foundation in modern machine learning through research on <a href="https://arxiv.org/abs/2512.04571" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">temporal out-of-distribution generalization</a>, <a href="#research" className="text-primary hover:underline font-medium">self-supervised representation learning</a>, and <a href="https://aisel.aisnet.org/icis2025/isdesign/isdesign/11/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">vision–language models</a>. I have explored these questions across scientific, creative, and socially grounded settings, including <a href="https://openreview.net/forum?id=l3tVN08tyh" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI-assisted music creation</a>, <a href="#research" className="text-primary hover:underline font-medium">socially intelligent systems</a>, and <a href="https://openreview.net/forum?id=aj6jxs2key" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">executable 3D world generation</a>.
+                    My research explores when human expertise is valuable in autonomous AI workflows, how AI systems can effectively incorporate human judgment, and how we can reliably evaluate these systems. Currently, I am investigating the ability of AI agents to simulate domain experts when evaluating expert-facing research interfaces, examining where AI-generated assessments align with or diverge from real human evaluations.
                   </p>
                   <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
-                    My long-term research goal is to understand where human involvement meaningfully improves increasingly autonomous AI systems and to design forms of human–AI collaboration that produce better, more reliable, and more useful outcomes than either humans or AI working independently.
+                    More broadly, my work spans human–AI collaboration, autonomous agents, generative AI, and multimodal interaction. I have explored these areas through projects in <a href="https://openreview.net/forum?id=l3tVN08tyh" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-medium">AI-assisted music co-creation</a>, <a href="#research" className="text-primary hover:underline font-medium">socially intelligent robotics</a>, and <a href="#publications" className="text-primary hover:underline font-medium">scientific machine learning</a>.
+                  </p>
+                  <p className="text-base sm:text-lg md:text-xl text-muted-foreground">
+                    My long-term research goal is to understand how humans and autonomous AI systems can complement one another, and to design collaborative systems that produce more reliable and useful outcomes.
                   </p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
@@ -225,7 +234,7 @@ function App() {
                     </a>
                   </Button>
                   <Button variant="secondary" asChild className="w-full sm:w-auto">
-                    <a href="/documents/Sanchit_Singh.pdf" target="_blank" rel="noopener noreferrer">
+                    <a href="/documents/Singh_Sanchit_CV.pdf" target="_blank" rel="noopener noreferrer">
                       <FileText className="mr-2 h-4 w-4" /> Resume/CV
                     </a>
                   </Button>
@@ -241,7 +250,8 @@ function App() {
                <AlertTitle>News</AlertTitle>
               <AlertDescription>
                 <ul className="list-disc list-inside space-y-2 mt-2">
-                  <li><span className="text-muted-foreground text-sm">[Jul. 2026]</span> Joined <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">UCLA</a> as a Visiting Scholar working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">Prof. Xiang “Anthony” Chen</a> on human–AI interaction and the role of feedback mechanisms in agentic research systems.</li>
+                  <li><span className="text-muted-foreground text-sm">[Sep. 2026]</span> Submitted first-author manuscript to <span className="font-semibold">The Journal of the Acoustical Society of America (JASA)</span> — <span className="font-semibold">under review</span>.</li>
+                  <li><span className="text-muted-foreground text-sm">[Jul. 2026]</span> Joined <a href="https://www.ucla.edu/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">UCLA</a> as a Visiting Scholar working with <a href="https://hci.prof/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">Prof. Xiang “Anthony” Chen</a> on human–AI interaction and collaboration in autonomous research systems.</li>
                   <li><span className="text-muted-foreground text-sm">[Mar 1, 2026]</span> My solo author paper <span className="font-semibold">"Modular Training-Free Construction of Executable 3D Worlds from Narrative Text"</span> was accepted to <span className="font-semibold">The 2nd Workshop on W🌍rld Models: Understanding, Modelling, and Scaling (ICLR 2026 Workshop)</span>.</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 17, 2025]</span> Selected as an Honorable Mention for the 2026 <a href="https://verified.sertifier.com/en/verify/55920463721728/" target="_blank" rel="noopener noreferrer" className="font-semibold text-primary underline hover:opacity-80">CRA Outstanding Undergraduate Researcher Award</a> (national recognition; top undergraduate researchers in North America).</li>
                   <li><span className="text-muted-foreground text-sm">[Dec 7, 2025]</span> Presented DAWZY at <span className="font-semibold">NeurIPS 2025</span> (AI for Music Workshop), San Diego.</li>
@@ -263,16 +273,25 @@ function App() {
             <div className="space-y-6">
               {publications.map((pub) => (
                 <div key={pub.title} className="py-4 border-b border-border/50 last:border-b-0">
-                  <h3 className="font-semibold text-lg mb-1">{pub.title}</h3>
-                  <p className="text-sm text-muted-foreground mb-2 italic">{pub.authors} {pub.note && <span>({pub.note})</span>}</p>
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <h3 className="font-semibold text-lg">{pub.title}</h3>
+                    {(pub as any).underReview && (
+                      <span className="text-xs font-semibold uppercase tracking-wide text-amber-700 dark:text-amber-400 border border-amber-600/40 dark:border-amber-400/40 rounded px-2 py-0.5">
+                        Under Review
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-2 italic">{pub.authors} {(pub as any).note && <span>({(pub as any).note})</span>}</p>
                   <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mt-2">
                     <p className="text-sm font-medium">{pub.journal}</p>
                     <div className="flex flex-wrap gap-2">
-                      <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
-                        <a href={pub.link} target="_blank" rel="noopener noreferrer">
-                          Read Paper <ExternalLink className="ml-2 h-4 w-4" />
-                        </a>
-                      </Button>
+                      {(pub as any).link && (
+                        <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
+                          <a href={(pub as any).link} target="_blank" rel="noopener noreferrer">
+                            Read Paper <ExternalLink className="ml-2 h-4 w-4" />
+                          </a>
+                        </Button>
+                      )}
                       {(pub as any).demoLink && (
                         <Button variant="ghost" size="sm" asChild className="w-full sm:w-auto">
                           <a href={(pub as any).demoLink} target="_blank" rel="noopener noreferrer">
@@ -319,52 +338,11 @@ function App() {
             </div>
             
             <div className="space-y-6">
-              <div>
-                <ul className="space-y-4">
-                  {completedProjects.map((project, index) => {
-                    const renderAdvisors = () => {
-                      if ((project as any).linkedAdvisors) {
-                        let advisorsText = project.advisors;
-                        const linkedAdvisors = (project as any).linkedAdvisors;
-                        
-                        Object.keys(linkedAdvisors).forEach(advisorName => {
-                          const link = linkedAdvisors[advisorName];
-                          const advisorRegex = new RegExp(`\\b${advisorName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g');
-                          advisorsText = advisorsText.replace(advisorRegex, `<a href="${link}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">${advisorName}</a>`);
-                        });
-                        
-                        return <span dangerouslySetInnerHTML={{ __html: advisorsText }} />;
-                      }
-                      return <span>{project.advisors}</span>;
-                    };
-
-                    return (
-                      <li key={index}>
-                        <h3 className="text-lg font-semibold">{project.title}</h3>
-                        {(project as any).idea && (
-                          <p className="text-sm text-foreground/90 mt-1 mb-2 italic">{(project as any).idea}</p>
-                        )}
-                        <p className="text-sm text-muted-foreground"><strong>Advisors:</strong> {renderAdvisors()}</p>
-                        {(project as any).researchGroup && (
-                          <p className="text-sm text-muted-foreground">
-                            <strong>Research Group:</strong> 
-                            <a href={(project as any).researchGroup.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium ml-1">
-                              {(project as any).researchGroup.name}
-                            </a>
-                          </p>
-                        )}
-                        <p className="text-sm text-muted-foreground"><strong>Role:</strong> {project.role}</p>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-
               <div className="relative pt-2">
                   <Separator />
                   <h3 className="absolute left-1/2 -translate-x-1/2 -top-3 bg-background px-4 text-md font-medium text-muted-foreground">Ongoing Projects</h3>
               </div>
-              
+
               <div>
                 <ul className="space-y-4">
                   {ongoingProjects.map((project, index) => {
@@ -391,6 +369,52 @@ function App() {
                           <p className="text-sm text-foreground/90 mt-1 mb-2 italic">{(project as any).idea}</p>
                         )}
                         <p className="text-sm text-muted-foreground"><strong>{project.advisors.includes(',') ? 'Advisors:' : 'Advisor:'}</strong> {renderAdvisors()}</p>
+                        {(project as any).researchGroup && (
+                          <p className="text-sm text-muted-foreground">
+                            <strong>Research Group:</strong> 
+                            <a href={(project as any).researchGroup.link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline font-medium ml-1">
+                              {(project as any).researchGroup.name}
+                            </a>
+                          </p>
+                        )}
+                        <p className="text-sm text-muted-foreground"><strong>Role:</strong> {project.role}</p>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              <div className="relative pt-2">
+                  <Separator />
+                  <h3 className="absolute left-1/2 -translate-x-1/2 -top-3 bg-background px-4 text-md font-medium text-muted-foreground">Completed</h3>
+              </div>
+              
+              <div>
+                <ul className="space-y-4">
+                  {completedProjects.map((project, index) => {
+                    const renderAdvisors = () => {
+                      if ((project as any).linkedAdvisors) {
+                        let advisorsText = project.advisors;
+                        const linkedAdvisors = (project as any).linkedAdvisors;
+                        
+                        Object.keys(linkedAdvisors).forEach(advisorName => {
+                          const link = linkedAdvisors[advisorName];
+                          const advisorRegex = new RegExp(`\\b${advisorName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'g');
+                          advisorsText = advisorsText.replace(advisorRegex, `<a href="${link}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline font-medium">${advisorName}</a>`);
+                        });
+                        
+                        return <span dangerouslySetInnerHTML={{ __html: advisorsText }} />;
+                      }
+                      return <span>{project.advisors}</span>;
+                    };
+
+                    return (
+                      <li key={index}>
+                        <h3 className="text-lg font-semibold">{project.title}</h3>
+                        {(project as any).idea && (
+                          <p className="text-sm text-foreground/90 mt-1 mb-2 italic">{(project as any).idea}</p>
+                        )}
+                        <p className="text-sm text-muted-foreground"><strong>Advisors:</strong> {renderAdvisors()}</p>
                         {(project as any).researchGroup && (
                           <p className="text-sm text-muted-foreground">
                             <strong>Research Group:</strong> 
@@ -432,7 +456,7 @@ function App() {
                 <li>2025 – Awarded a <span className="font-medium text-foreground">$3,000 Seed Fund</span> from the Lavin Entrepreneurship Center to support research and development of an independent AI venture.</li>
                 <li>2025 – <span className="font-medium text-foreground">Finalist</span>, UC Berkeley AI Hackathon (DAWZY) — Top 9 of 350+ projects, 1400+ participants</li>
                 <li>2024 – <span className="font-medium text-foreground">TensorFlow Developer Certification</span>, Google</li>
-                <li>2023 – Present – <span className="font-medium text-foreground">Dean's List</span>, San Diego State University (awarded consecutively each semester)</li>
+                <li>2023–2026 – <span className="font-medium text-foreground">Dean's List</span>, San Diego State University (6 semesters)</li>
               </ul>
 
               {/* Gallery */}
@@ -547,6 +571,22 @@ function App() {
                 </DialogContent>
               </Dialog>
             </div>
+          </div>
+        </section>
+
+        <Separator />
+
+        {/* Academic Service Section */}
+        <section id="service" className="w-full py-16 md:py-20 overflow-x-hidden max-w-full">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="flex flex-col items-center text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold">Academic Service</h2>
+            </div>
+            <ul className="list-disc list-inside space-y-2 text-sm text-muted-foreground max-w-3xl mx-auto">
+              <li>
+                Reviewer, <span className="font-medium text-foreground">NeurIPS 2026 Workshop on Physical Understanding for Decision-Making</span> (PhysUnderstand)
+              </li>
+            </ul>
           </div>
         </section>
 

@@ -22,15 +22,11 @@ Academic/research portfolio website for Sanchit Singh, showcasing publications, 
 | src/globals.css | CSS variables for light/dark themes |
 
 ## Current State
-- Last updated: Aug 16, 2026
-- Resume/CV button now opens `/documents/Sanchit_Singh.pdf` (new URL so CloudFront/browser do not serve the old cached CV). PDFs are no longer cached as immutable for 1 year in the S3 deploy.
-- Intro bio rewritten around HCI/collaboration framing (Visiting Scholar at UCLA); News uses Visiting Scholar.
-- Header social row includes Google Scholar alongside Email, LinkedIn, GitHub, and Devpost.
-- Ongoing Projects: added Human–AI Interaction in Agentic Research Systems (UCLA HCI Group; listed first).
-- ICLR World Models workshop paper title prefixed with "Modular"; OpenReview links for paper + narrative worlds.
-- Theme: Dark/light toggle (dark default, localStorage). Header toggle on desktop and mobile.
-- Research Journey: one-line "research idea" per project; bioacoustics includes animal2vec GitHub link.
-- Section order: Hero → News → Publications → Research Journey → Awards → Contact.
+- Last updated: Oct 18, 2026
+- Hosting: `sanchitsingh.com` → CloudFront `d3ve8ftrmgxsw6.cloudfront.net`; deploy workflow on `master` → S3 `sanchit-portfolio-2024` / CF `E3Q3VIF2SYX6BP`.
+- PhD-application content sync (local, not yet pushed): new intro; UCLA project emphasizes AI-simulated expert eval; JASA under-review pub + news; DAWZY MOS eval; bioacoustics moved to completed; author orders match CV; HICSS above 2025 pubs; Academic Service (NeurIPS PhysUnderstand); Dean’s List 6 semesters; CV at `/documents/Singh_Sanchit_CV.pdf`.
+- Section order: Hero → News → Publications → Research (Ongoing first) → Awards → Academic Service → Contact.
+- Theme: Dark/light toggle (dark default, localStorage).
 
 ## Active Tasks
-- None currently
+- Push to `master` to deploy content + CV updates via GitHub Actions.
